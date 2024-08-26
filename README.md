@@ -1,8 +1,8 @@
 # project-idk
 
-<h3><b>ini adalah projek-idk (idontknow)</b></h3>
+<h3>ini adalah projek-idk (idontknow)</h3>
 
-:clipboard: <h5><b>To-do</b></h5> 
+:clipboard: <b>To-do</b> 
 
 **Main task:**
 
