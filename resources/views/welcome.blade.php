@@ -11,7 +11,9 @@
 	<header class="header" style="background-color: #303030;">
         <nav class="navbar navbar-default">
             <div class="row mx-auto text-center">
-				<img src="https://cdn.discordapp.com/attachments/602152146850283540/1272402233514000415/20240812_105147.png?ex=66bad86c&is=66b986ec&hm=ce2be429cd14776db615e997d03be73a92514bacc9973f320560f98d0fd5d1d6&" alt="Arifuwu" width="200" height="45">     
+                <a href="{{route('welcome')}}">
+				    <img src="https://cdn.discordapp.com/attachments/602152146850283540/1272402233514000415/20240812_105147.png?ex=66bad86c&is=66b986ec&hm=ce2be429cd14776db615e997d03be73a92514bacc9973f320560f98d0fd5d1d6&" alt="Arifuwu" width="200" height="45">     
+                </a>
             </div>
         </nav>
     </header>

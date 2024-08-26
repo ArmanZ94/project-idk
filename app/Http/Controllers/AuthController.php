@@ -51,4 +51,9 @@ class AuthController extends Controller
 
         return redirect()->route('login');
     }
+
+    public function welcome()
+    {
+        return view('welcome');
+    }
 }

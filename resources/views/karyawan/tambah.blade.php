@@ -29,7 +29,7 @@
 		}
     </style>
 </head>
-<body style="background-color:#121212;">
+<body style="background-color:#121212; font-family: Segoe UI">
 	<header class="header">
         <nav class="navbar navbar-default">
             <div class="container">
