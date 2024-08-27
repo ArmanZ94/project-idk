@@ -4,63 +4,53 @@
 	<title>Daftar Karyawan</title>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 	<style>
-
-		.navbar-default .navbar-nav > li > a {
-			color: #ffffff;
-			padding-top:16px;
-            padding-bottom: 15px;
-		}
-		.navbar-default .navbar-nav > li > a:hover {
-			color: #bbff00;
-        }
-		.navbar-default {
-			background-color: #303030;
-			border-color: #303030;
-		}
-		.navbar-header {
-			padding-top: 4px;
-            padding-bottom: 4px;
-		}
-		.container-fluid {
-			  padding-right: 100px;
-			  padding-left: 100px;
-			  margin-right: auto;
-			  margin-left: auto;
-		}
+	  	.navbar-nav .nav-link.active{
+        	color: #ffffff;
+      	}
+      	.navbar-nav .nav-link:hover{
+        	color: #bbff00;
+      	}
 	</style>
 </head>
-<body style="background-color:#121212; font-family: Segoe UI">
+<body style="background-color:#121212; font-family: Segoe UI; color: #ffffff;">
 	<header class="header" style="background-color: #303030;">
-        <nav class="navbar navbar-default">
-            <div class="container">
-                <!-- Brand -->
-                <div class="navbar-header">
-					 <img src="https://cdn.discordapp.com/attachments/602152146850283540/1272402233514000415/20240812_105147.png?ex=66bad86c&is=66b986ec&hm=ce2be429cd14776db615e997d03be73a92514bacc9973f320560f98d0fd5d1d6&" alt="Arifuwu" width="200" height="45"> 
-                </div>
-                <!-- Navigation links -->	
-                <div>
-                    <ul class="nav navbar-nav">
-                        <li><a href="{{route('home')}}">Home</a></li>
-                        <li><a href="{{route('karyawan.daftarkarya')}}">Daftar Karyawan</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-	<h1 class="text-center" style="color:#ffffff;">Daftar Karyawan</h1>
-	<div class="container-fluid">
-		<a href="{{route('karyawan.tambah')}}"class="btn btn-md btn-success mb-10 float-end">Tambah</a>
-	
-		<table class="table table-bordered mt-1 text-left" style="color:#ffffff; width:100%;">
-			<thead>
+		<nav class="navbar navbar-expand-lg">
+		   <div class="container">
+			 	<img src="{{asset('Arifuwulogo.png')}}" alt="Arifuwu" width="200" height="45">     
+			 	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			   		<span class="navbar-toggler-icon"></span>
+			 	</button>
+			 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			   		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				 		<li class="nav-item">
+				   			<a class="nav-link active" aria-current="page" href="{{route('home')}}">Home</a>
+				 		</li>
+				 		<li class="nav-item">
+				   			<a class="nav-link active" aria-current="page" href="{{route('karyawan.daftarkarya')}}">Daftar Karyawan</a>
+				 		</li>
+			   		</ul>
+			   		<form action="{{ route('logout') }}" method="POST" class="d-flex" role="search">
+				   		@csrf
+				   		@method('DELETE')
+				   		<button class="btn btn-light" type="submit">Logout</button>
+			   		</form>
+			 	</div>
+		   	</div>
+		</nav>
+	</header>
+	<div class="container">
+		<h1 class="text-center mt-3"> Daftar Karyawan</h1>
+		<table class="table table-bordered text-left mt-4" style="vertical-align: middle; white-space: nowrap; color:#ffffff; width:100%;">
+			<thead style="vertical-align: middle;">
 				<tr>
 					<th style="width:2%">ID</th>
 					<th>NAMA</th>
-					<th style="width:9%">Aksi</th>
+					<th style="width:11%">
+						<a href="{{route('karyawan.tambah')}}"class="btn btn-success text-center" style="display: flex;">Tambah</a>
+					</th>
 				</tr>
 			</thead>	
 			<tbody>
@@ -71,15 +61,11 @@
 					<td>
 						<form onsubmit="return confirm('Apakah Anda Yakin ?');"
 							action="{{ route('karyawan.hapus', $karyawan->id) }}" method="POST">
-
-							<a href="{{ route('karyawan.edit', $karyawan->id) }}"
-							class="btn btn-sm btn-primary">Edit</a>
-
+							<a href="{{ route('karyawan.edit', $karyawan->id) }}" class="btn btn-primary">Edit</a>
 							@csrf
 							@method('DELETE')
-							<button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+							<button type="submit" class="btn btn-danger">Hapus</button>
 						</form>
-
 					</td>
 				</tr>
 				@endforeach
