@@ -12,4 +12,5 @@
 - Relate table migrate :x:
 
 **Side task:**
-- rapihin tampilan auth :cool:
+- rapihin tampilan auth :heavy_check_mark:
+- rapihin tampilan karyawan :x:
