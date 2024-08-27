@@ -14,6 +14,8 @@ class KaryawansTableSeeder extends Seeder
     {
         Karyawan::create([
             'nama' => 'Test Subject',
+            'jabatan_id' => 1,
+            'ruangan_id' => 1,
         ]);
 
         // Creating multiple users using a factory

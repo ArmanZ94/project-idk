@@ -19,8 +19,12 @@ class KaryawanFactory extends Factory
 	 
     public function definition(): array
     {
+        $randomId = $this->faker->numberBetween(2, 4);
+
         return [
             'nama' => $this->faker->name(),
+            'jabatan_id' => $randomId,
+            'ruangan_id' => $randomId,
         ];
     }
 }
