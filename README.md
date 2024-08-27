@@ -9,8 +9,9 @@
 - CRUD :heavy_check_mark:
 - Auth :heavy_check_mark:
 - Seeding :heavy_check_mark:
-- Relate table migrate :x:
+- Relate table migrate :heavy_check_mark:
 
 **Side task:**
 - rapihin tampilan auth :heavy_check_mark:
 - rapihin tampilan karyawan :heavy_check_mark:
+- menampilkan ruangan & jabatan di daftarkarya :x:
