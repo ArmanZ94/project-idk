@@ -13,4 +13,4 @@
 
 **Side task:**
 - rapihin tampilan auth :heavy_check_mark:
-- rapihin tampilan karyawan :x:
+- rapihin tampilan karyawan :heavy_check_mark:
