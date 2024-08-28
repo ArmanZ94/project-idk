@@ -42,7 +42,7 @@
     	</nav>
     </header>
     <div class="container">
-       	<h1> Welcome, {{ Auth::user()->name }}</h1>
+       	<h1 class="text-center mt-3"> Welcome, {{ Auth::user()->name }}</h1>
     </div>
 </body>
 </html>
