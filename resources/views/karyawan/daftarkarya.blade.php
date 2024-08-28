@@ -18,7 +18,7 @@
 <body style="background-color:#121212; font-family: Segoe UI; color: #ffffff;">
 	<header class="header" style="background-color: #303030;">
 		<nav class="navbar navbar-expand-lg">
-		   <div class="container">
+		   	<div class="container">
 			 	<img src="{{asset('Arifuwulogo.png')}}" alt="Arifuwu" width="200" height="45">     
 			 	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			   		<span class="navbar-toggler-icon"></span>
