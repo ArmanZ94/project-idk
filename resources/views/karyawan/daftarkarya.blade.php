@@ -48,6 +48,8 @@
 				<tr>
 					<th style="width:2%">ID</th>
 					<th>NAMA</th>
+					<th>JABATAN</th>
+					<th>RUANGAN</th>
 					<th style="width:11%">
 						<a href="{{route('karyawan.tambah')}}"class="btn btn-success text-center" style="display: flex;">Tambah</a>
 					</th>
@@ -58,6 +60,8 @@
 				<tr>
 					<td>{{ $karyawan->id }}</td>
 					<td>{{ $karyawan->nama }}</td>
+					<td>{{ optional($karyawan->jabatan)->nama_jabatan ?? '---'}}</td>
+					<td>{{ optional($karyawan->ruangan)->nama_ruangan ?? '---'}}</td>
 					<td>
 						<form onsubmit="return confirm('Apakah Anda Yakin ?');"
 							action="{{ route('karyawan.hapus', $karyawan->id) }}" method="POST">

@@ -57,8 +57,28 @@
                             @method('PUT')
                             <div class="mb-3">
                                 <label for="nama" class="form-label">Nama</label>
-                                <input type="text" name="nama" class="form-control" value="{{ old('nama', $karyawan->nama) }}" required>
+                                <input type="text" name="nama" class="form-control" id="nama" value="{{ old('nama', $karyawan->nama) }}" required>
                             </div>
+                            <div class="mb-3">
+                                <label for="jabatan_id" class="form-group">Jabatan</label>
+                                <select type="integer" name="jabatan_id" class="form-control" id="jabatan_id" required>
+                                    <option value="" disabled selected>--pilih salah satu--</option>
+                                    <option value="1">1. Manager</option>
+                                    <option value="2">2. TechSupport</option>
+                                    <option value="3">3. Worker</option>
+                                    <option value="4">4. Orang</option>
+                                </select>
+                            </div> 
+                            <div class="mb-3">
+                                <label for="ruangan_id" class="form-group">Ruangan</label>
+                                <select type="integer" name="ruangan_id" class="form-control" id="ruangan_id" required>
+                                    <option value="" disabled selected>--pilih salah satu--</option>
+                                    <option value="1">1. Ruang Manager</option>
+                                    <option value="2">2. Ruang IT</option>
+                                    <option value="3">3. Ruang Produksi</option>
+                                    <option value="4">4. Ruang Kantor</option>
+                                </select>
+                            </div>   
                             <div class="mb-3">
                                 <div class="d-grid gap-2" style="grid-template-columns: repeat(2, 1fr);">
                                     <button class="btn btn-primary">Update</button>

@@ -9,8 +9,9 @@ class KaryawanController extends Controller
 {
     public function k_daftar()
 	{
-		$karyawans = Karyawan::latest()->get();
-		return view('karyawan.daftarkarya', compact('karyawans'));
+		$karyawans = Karyawan::latest('id')->with('jabatan')->with('ruangan')->get();
+
+        return view('karyawan.daftarkarya', compact('karyawans'));
 	}
 	
 	public function k_tambah()
@@ -21,11 +22,16 @@ class KaryawanController extends Controller
     public function k_simpan(Request $request)
     {
         $request->validate([
-            'nama' => 'required|string|max:255'
+            'nama' => 'required|string|max:255',
+            'jabatan_id' => 'required|integer',
+            'ruangan_id' => 'required|integer'
+
         ]);
 
         $karyawan = Karyawan::create([
-            'nama' => $request->nama
+            'nama' => $request->nama,
+            'jabatan_id' => $request->jabatan_id,
+            'ruangan_id' => $request->ruangan_id
         ]);
 
         return redirect()
@@ -50,6 +56,8 @@ class KaryawanController extends Controller
     {
         $request->validate([
             'nama' => 'required|string|max:255',
+            'jabatan_id' => 'required|integer',
+            'ruangan_id' => 'required|integer'
         ]);
 
 		$karyawan = Karyawan::findOrFail($id);
