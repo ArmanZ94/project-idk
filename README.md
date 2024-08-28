@@ -1,7 +1,5 @@
 # project-idk
 
-<h3>ini adalah projek-idk (idontknow)</h3>
-
 :clipboard: <b>To-do</b> 
 
 **Main task:**
@@ -14,4 +12,4 @@
 **Side task:**
 - rapihin tampilan auth :heavy_check_mark:
 - rapihin tampilan karyawan :heavy_check_mark:
-- menampilkan ruangan & jabatan di daftarkarya :x:
+- menampilkan ruangan & jabatan di daftarkarya :heavy_check_mark:
