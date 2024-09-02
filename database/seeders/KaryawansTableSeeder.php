@@ -14,6 +14,7 @@ class KaryawansTableSeeder extends Seeder
     {
         Karyawan::create([
             'nama' => 'Test Subject',
+            'gaji_id' => 1,
             'jabatan_id' => 1,
             'ruangan_id' => 1,
         ]);

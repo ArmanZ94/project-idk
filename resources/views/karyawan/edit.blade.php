@@ -78,7 +78,11 @@
                                     <option value="3">3. Ruang Produksi</option>
                                     <option value="4">4. Ruang Kantor</option>
                                 </select>
-                            </div>   
+                            </div>  
+                            <div class="mb-3">
+                                <label for="gaji_pokok" class="form-label">Gaji</label>
+                                <input type="integer" name="gaji_pokok" class="form-control" id="gaji_pokok" placeholder="nominal gaji" required>
+                            </div>    
                             <div class="mb-3">
                                 <div class="d-grid gap-2" style="grid-template-columns: repeat(2, 1fr);">
                                     <button class="btn btn-primary">Update</button>

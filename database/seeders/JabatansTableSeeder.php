@@ -15,25 +15,21 @@ class JabatansTableSeeder extends Seeder
         Jabatan::create([
             'id' => 1,
             'nama_jabatan' => 'Manager',
-            'gaji_pokok' => '5000000',
         ]);
 
         Jabatan::create([
             'id' => 2,
             'nama_jabatan' => 'TechSupport',
-            'gaji_pokok' => '3000000',
         ]);
 
         Jabatan::create([
             'id' => 3,
             'nama_jabatan' => 'Worker',
-            'gaji_pokok' => '2000000',
         ]);
 
         Jabatan::create([
             'id' => 4,
             'nama_jabatan' => 'Orang',
-            'gaji_pokok' => '3500000',
         ]);
     }
 }
