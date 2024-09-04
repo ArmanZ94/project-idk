@@ -25,13 +25,9 @@
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
-                        <div class="d-grid">
+                        <div class="d-grid gap-2" style="grid-template-columns: 4fr 1fr;">
                             <a href="{{route('login')}}"class="btn btn-success">Login</a>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <div class="d-grid">
-                            <a href="{{route('register')}}"class="btn btn-primary">Register</a>
+                            <a href="{{route('register')}}" class="btn btn-primary">Register</a>
                         </div>
                     </div>
                 </div>

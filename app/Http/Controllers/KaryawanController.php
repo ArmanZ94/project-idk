@@ -26,24 +26,21 @@ class KaryawanController extends Controller
     {
         $request->validate([
             'nama' => 'required|string|max:50',
-            'jabatan_id' => 'required|integer|max:11',
-            'ruangan_id' => 'required|integer|max:11',
-            'gaji_pokok' => 'required|integer|max:11',
+            'jabatan_id' => 'required|integer',
+            'ruangan_id' => 'required|integer',
+            'gaji_pokok' => 'required|integer',
         ]);
-
-        //variable nama
-        $nama = $request->nama;
 
         //variable $namajabatan untuk mengambil nama_jabatan berdasar jabatan_id
         $namajabatan = Jabatan::find($request->jabatan_id)->nama_jabatan;
 
         $gajiid = Gaji::create([
             'gaji_pokok' => $request->gaji_pokok,
-            'note_gaji' => "$nama|$namajabatan",
+            'note_gaji' => "$request->nama|$namajabatan",
         ]);
 
         Karyawan::create([
-            'nama' => $nama,
+            'nama' => $request->nama,
             'jabatan_id' => $request->jabatan_id,
             'ruangan_id' => $request->ruangan_id,
             'gaji_id'=> $gajiid->id,
@@ -56,7 +53,7 @@ class KaryawanController extends Controller
 	public function k_hapus($id)
     {
 		$karyawan = Karyawan::findOrFail($id);
-        $karyawan->delete();
+        $karyawan->gaji->delete();
         return redirect()
             ->route('karyawan.daftarkarya');
     }
@@ -71,17 +68,18 @@ class KaryawanController extends Controller
     {
         $request->validate([
             'nama' => 'required|string|max:50',
-            'jabatan_id' => 'required|integer|max:11',
-            'ruangan_id' => 'required|integer|max:11',
-            'gaji_pokok' => 'required|integer|max:11',
+            'jabatan_id' => 'required|integer',
+            'ruangan_id' => 'required|integer',
+            'gaji_pokok' => 'required|integer',
         ]);
 
 		$karyawan = Karyawan::findOrFail($id);
+        $namajabatan = Jabatan::find($request->jabatan_id)->nama_jabatan;
 
         // Update data Gaji terkait
         $karyawan->gaji->update([
             'gaji_pokok' => $request->gaji_pokok,
-            'note_gaji' => "{$request->nama} - " . Jabatan::find($request->jabatan_id)->nama_jabatan,
+            'note_gaji' => "$request->nama|$namajabatan",
         ]);
 
         // Update data Karyawan
