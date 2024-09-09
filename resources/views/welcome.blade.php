@@ -30,6 +30,9 @@
                             <a href="{{route('register')}}" class="btn btn-primary">Register</a>
                         </div>
                     </div>
+                    <div class="mb-3">
+                        Total Karyawan Aktif: {{$totalkaryawans }}
+                    </div>
                 </div>
             </div>
         </div>

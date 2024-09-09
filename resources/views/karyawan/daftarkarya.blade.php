@@ -13,6 +13,15 @@
       	.navbar-nav .nav-link:hover{
         	color: #bbff00;
       	}
+		.pagination .page-link {
+       		color: #ffffff; /* White text color */
+       		background-color: #303030; /* Match the background color */
+       		border-color: #505050; /* Slightly lighter border color */
+   		}
+		.pagination .page-item.active .page-link {
+       		background-color: #505050; /* Slightly lighter for active item */
+       		border-color: #505050;
+   		}
 	</style>
 </head>
 <body style="background-color:#121212; font-family: Segoe UI; color: #ffffff;">

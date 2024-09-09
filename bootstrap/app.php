@@ -12,8 +12,9 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
-            'IsUnverified' => \App\Http\Middleware\IsUnverifieds::class,
-            'IsVerified' => \App\Http\Middleware\IsVerified::class,
+            'IsUnverified' => \App\Http\Middleware\IsUnverified::class,
+            'IsAdmin' => \App\Http\Middleware\IsAdmin::class,
+            'IsUser' => \App\Http\Middleware\IsUser::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

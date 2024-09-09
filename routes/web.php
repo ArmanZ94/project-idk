@@ -3,10 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KaryawanController;
-use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
-
-
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/', [AuthController::class, 'welcome'])->name('welcome');
@@ -18,12 +15,11 @@ Route::group(['middleware' => 'guest'], function () {
 
 Route::group(['middleware' => ['auth','IsUnverified']], function () {
     Route::get('/verify', [AuthController::class,'verify'])->name('verify');
-    Route::get('/sendmail', [MailController::class, 'sendmail'])->name('sendmail'); 
 });
 
-Route::group(['middleware' => ['auth','IsVerified']], function () {
+Route::group(['middleware' => ['auth','IsAdmin']], function () {
     Route::get('/home', [HomeController::class, 'home'])->name('home');
-    Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
+    //Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
 	
 	Route::get('/karyawan',[ KaryawanController::class,'k_daftar'])->name('karyawan.daftarkarya');
 	Route::get('/karyawan/tambah',[ KaryawanController::class,'k_tambah'])->name('karyawan.tambah');
@@ -32,3 +28,8 @@ Route::group(['middleware' => ['auth','IsVerified']], function () {
 	Route::delete('/karyawan/hapus/{id}',[ KaryawanController::class,'k_hapus'])->name('karyawan.hapus');
 	Route::put('/karyawan/update/{id}',[ KaryawanController::class,'k_update'])->name('karyawan.update');
 });
+
+Route::delete('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
+Route::get('/blank', function() {
+    return response('blank', 200);
+})->name('blank');

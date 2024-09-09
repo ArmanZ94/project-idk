@@ -32,11 +32,11 @@
                     <form action="{{ route('register') }}" method="POST">
                         @csrf
                         <div class="mb-3">
-                            <label for="name" class="form-label">Name</label>
+                            <label for="name" class="form-label">Nama</label>
                             <input type="text" name="name" class="form-control" id="name" placeholder="example" required>
                         </div>
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email address</label>
+                            <label for="email" class="form-label">Alamat Email</label>
                             <input type="email" name="email" class="form-control" id="email" placeholder="example@email.com" required>
                         </div>
                         <div class="mb-3">
@@ -44,8 +44,9 @@
                             <input type="password" name="password" class="form-control" id="password" required>
                         </div>
                         <div class="mb-3">
-                            <div class="d-grid">
+                            <div class="d-grid gap-2" style="grid-template-columns: 4fr 1fr;">
                                 <button class="btn btn-primary">Register</button>
+                                <a href="{{route('login')}}"class="btn btn-light">Login</a>
                             </div>
                         </div>
                     </form>

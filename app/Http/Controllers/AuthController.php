@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Karyawan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -26,19 +27,19 @@ class AuthController extends Controller
 
         $user->save();
 
-        Mail::to('ibnuzaky944@gmail.com')->send(new MailVerify(
-            [
+        //admin
+        Mail::to('ibnuzaky9444@gmail.com')->send(new MailVerify([
                 'body'=> 'Hi, admin tolong verify email ini',
                 'thanks'=> $request->name
-            ]
-        ));
-
-        Mail::to($request->email)->send(new MailVerify([
-            'body'=> 'Hi,'.$request->name.' akun anda akan segera kami verify',
-            'thanks'=> 'team admin'
         ]));
 
-        return back()->with('success', 'Register successfully');
+        //user
+        Mail::to('ibnuzaky94444@gmail.com')->send(new MailVerify([
+            'body'=> 'Hi,'.$request->name.' akun anda akan segera kami verify',
+            'thanks'=> 'team admin, IDKCompany'
+        ]));
+
+        return back()->with('success', 'Sukses Register');
     }
 
     public function login()
@@ -59,26 +60,21 @@ class AuthController extends Controller
         ];
 
         if (Auth::attempt($credentials)) {
-
-            if (Auth::user()->user_id == 2) {
-                return redirect('/home')->with('success', 'Login berhasil');
-            } elseif (Auth::user()->user_id == 1) {
-                return redirect('/verify')->with('error', 'Tunggu Email diverifikasi');
-            }
-
-        return back()->with('error', 'Email or Password salah');
+            return redirect('/verify')->with('success', 'Mohon tunggu diverifikasi');
         }
+        return back()->with('error', 'Email atau Password salah');
     }
 
     public function logout()
     {
         Auth::logout();
-
         return redirect()->route('login');
     }
 
     public function welcome()
     {
-        return view('welcome');
+        $totalkaryawans = Karyawan::count();
+
+        return view('welcome', compact('totalkaryawans'));
     }
 }

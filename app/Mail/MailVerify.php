@@ -29,7 +29,7 @@ class MailVerify extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'testsubject',
+            subject: 'Pemberitahuan Verifikasi',
         );
     }
 
@@ -39,7 +39,7 @@ class MailVerify extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'sendmail',
+            view: 'verifymail',
         );
     }
 

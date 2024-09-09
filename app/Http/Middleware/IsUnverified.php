@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
 
-class IsUnverifieds
+class IsUnverified
 {
     /**
      * Handle an incoming request.
@@ -16,11 +16,12 @@ class IsUnverifieds
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // Check if the user is authenticated and not verified
-        if (Auth::user()->role_id != 1) {
-            // Redirect unverified users to the verification notice route
+        if (Auth::user()->role_id == 3) {
+            return redirect('/blank');
+        } 
+        elseif (Auth::user()->role_id == 2) {
             return redirect('/home');
         }
-        return $next($request); // Continue with the request if verified
+        return $next($request);
     }
 }
