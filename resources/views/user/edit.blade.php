@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Tambah Karyawan</title>
+	<title>Edit User</title>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
@@ -45,7 +45,7 @@
         </nav>
     </header>
 	<div class="container">
-        <h1 class="text-center mt-3">Tambah Karyawan</h1>
+        <h1 class="text-center mt-3">Edit User</h1>
         <div class="row justify-content-center">
             <div class="col-lg-4">
                 <div class="card" style="color: #ffffff; background-color: #121212;">
@@ -55,40 +55,22 @@
                                 {{ Session::get('error') }}
                             </div>
                         @endif
-                        <form action="{{ route('karyawan.simpan') }}" method="POST">
+                        <form action="{{ route('user.update', $user->id) }}" method="POST">
                             @csrf
+                            @method('PUT')
                             <div class="mb-3">
-                                <label for="nama" class="form-label">Nama</label>
-                                <input type="text" name="nama" class="form-control" id="nama" placeholder="nama karyawan" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="jabatan_id" class="form-group">Jabatan</label>
-                                <select type="integer" name="jabatan_id" class="form-control" id="jabatan_id" required>
+                                <label for="role_id" class="form-group">Role_ID</label>
+                                <select type="integer" name="role_id" class="form-control" id="role_id" required>
                                     <option value="" disabled selected>--pilih salah satu--</option>
-                                    <option value="1">1. Manager</option>
-                                    <option value="2">2. TechSupport</option>
-                                    <option value="3">3. Worker</option>
-                                    <option value="4">4. Orang</option>
+                                    <option value="1">1. unverified</option>
+                                    <option value="2">2. Admin</option>
+                                    <option value="3">3. User</option>
                                 </select>
-                            </div> 
-                            <div class="mb-3">
-                                <label for="ruangan_id" class="form-group">Ruangan</label>
-                                <select type="integer" name="ruangan_id" class="form-control" id="ruangan_id" required>
-                                    <option value="" disabled selected>--pilih salah satu--</option>
-                                    <option value="1">1. Ruang Manager</option>
-                                    <option value="2">2. Ruang IT</option>
-                                    <option value="3">3. Ruang Produksi</option>
-                                    <option value="4">4. Ruang Kantor</option>
-                                </select>
-                            </div>   
-                            <div class="mb-3">
-                                <label for="gaji_pokok" class="form-label">Gaji</label>
-                                <input type="integer" name="gaji_pokok" class="form-control" id="gaji_pokok" placeholder="nominal gaji" required>
-                            </div>   
+                            </div>     
                             <div class="mb-3">
                                 <div class="d-grid gap-2" style="grid-template-columns: repeat(2, 1fr);">
-                                    <button class="btn btn-primary">Simpan</button>
-                                    <a href="{{ route('karyawan.daftarkarya') }}" class="btn btn-md btn-secondary">Kembali</a>
+                                    <button class="btn btn-primary">Update</button>
+                                    <a href="{{ route('user.daftaruser') }}" class="btn btn-md btn-secondary">Kembali</a>
                                 </div>
                             </div>
                         </form>

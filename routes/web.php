@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KaryawanController;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,11 @@ Route::group(['middleware' => ['auth','IsAdmin']], function () {
 	Route::post('/karyawan/simpan',[ KaryawanController::class,'k_simpan'])->name('karyawan.simpan');
 	Route::delete('/karyawan/hapus/{id}',[ KaryawanController::class,'k_hapus'])->name('karyawan.hapus');
 	Route::put('/karyawan/update/{id}',[ KaryawanController::class,'k_update'])->name('karyawan.update');
+
+    Route::get('/user',[ UserController::class,'u_daftar'])->name('user.daftaruser');
+	Route::get('/user/edit/{id}',[ UserController::class,'u_edit'])->name('user.edit');
+	Route::delete('/user/hapus/{id}',[ UserController::class,'u_hapus'])->name('user.hapus');
+	Route::put('/user/update/{id}',[ UserController::class,'u_update'])->name('user.update');
 });
 
 Route::delete('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');

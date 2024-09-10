@@ -29,8 +29,8 @@ class AuthController extends Controller
 
         //admin
         Mail::to('ibnuzaky9444@gmail.com')->send(new MailVerify([
-                'body'=> 'Hi, admin tolong verify email ini',
-                'thanks'=> $request->name
+                'body'=> 'Hi, admin tolong verify email ini, '.$request->name.' | '.$request->email,
+                'thanks'=> route('register')
         ]));
 
         //user

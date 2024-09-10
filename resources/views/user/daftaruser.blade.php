@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Daftar Karyawan</title>
+	<title>Daftar User</title>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
@@ -54,32 +54,40 @@
 		</nav>
 	</header>
 	<div class="container">
-		<h1 class="text-center mt-3">Daftar Karyawan</h1>
+		<h1 class="text-center mt-3">Daftar User</h1>	
 		<table class="table table-bordered text-left mt-4" style="vertical-align: middle; white-space: nowrap; color:#ffffff; width:100%;">
 			<thead style="vertical-align: middle;">
 				<tr>
 					<th style="width:2%">ID</th>
 					<th>NAMA</th>
-					<th>JABATAN</th>
-					<th>RUANGAN</th>
-					<th>GAJI</th>
+					<th>EMAIL</th>
+					<th>ROLE</th>
 					<th style="width:11%">
-						<a href="{{route('karyawan.tambah')}}"class="btn btn-success text-center" style="display: flex;">Tambah</a>
+						<a href="https://localhost/phpmyadmin/index.php?route=/sql&pos=0&db=project-idk&table=users"class="btn btn-success text-center" style="display: flex;">phpMyAdmin</a>
 					</th>
 				</tr>
-			</thead>	
+			</thead>
 			<tbody>
-				@foreach($karyawans as $karyawan)
+				@foreach($users as $user)
 				<tr>
-					<td>{{ $karyawan->id }}</td>
-					<td>{{ $karyawan->nama }}</td>
-					<td>{{ optional($karyawan->jabatan)->nama_jabatan ?? '---'}}</td>
-					<td>{{ optional($karyawan->ruangan)->nama_ruangan ?? '---'}}</td>
-					<td>{{ optional($karyawan->gaji)->gaji_pokok ?? '---'}}</td>
+					<td>{{ $user->id }}</td>
+					<td>{{ $user->name }}</td>
+					<td>{{ $user->email }}</td>
+					<td>
+						@if(optional($user)->role_id == 1)
+							unverified
+						@elseif(optional($user)->role_id == 2)
+							Admin
+						@elseif(optional($user)->role_id == 3)
+							User
+						@else
+							---
+						@endif
+					</td>	
 					<td>
 						<form onsubmit="return confirm('Apakah Anda Yakin ?');"
-							action="{{ route('karyawan.hapus', $karyawan->id) }}" method="POST">
-							<a href="{{ route('karyawan.edit', $karyawan->id) }}" class="btn btn-primary">Edit</a>
+							action="{{ route('user.hapus', $user->id) }}" method="POST">
+							<a href="{{ route('user.edit', $user->id) }}" class="btn btn-primary">Edit</a>
 							@csrf
 							@method('DELETE')
 							<button type="submit" class="btn btn-danger">Hapus</button>
@@ -89,7 +97,7 @@
 				@endforeach
 			</tbody>
 		</table>
-		{{ $karyawans->links('pagination::bootstrap-5') }}
+		{{ $users->links('pagination::bootstrap-5') }}
 	</div>
 </body>
 </html>
