@@ -10,7 +10,7 @@
 - Relate table migrate :heavy_check_mark:
 - Pagination :heavy_check_mark:
 - Email Verification :heavy_check_mark:
-- Verification Approvement :x:
+- Verification Page :heavy_check_mark:
 - Display outside Auth :heavy_check_mark:
 
 **Side task:**
