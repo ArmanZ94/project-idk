@@ -9,12 +9,12 @@ class Karyawan extends Model
 {
     use HasFactory;
 	protected $table = 'karyawans';
-	protected $fillable = ['nama','jabatan_id','ruangan_id','gaji_id'];
+	protected $fillable = ['nama','jabatan_id','ruangan_id'];
 	//protected $fillable = ['nama','jabatan_id','ruangan_id'];
 
 	public function gaji()
 	{
-		return $this->belongsTo(Gaji::class);
+		return $this->hasOne(Gaji::class);
 	}
 	public function ruangan()
 	{

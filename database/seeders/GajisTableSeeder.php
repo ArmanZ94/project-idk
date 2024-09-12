@@ -13,24 +13,11 @@ class GajisTableSeeder extends Seeder
     public function run(): void
     {
         Gaji::create([
-            'id' => 1,
-            'gaji_pokok' => 1000000,
-            'note_gaji' => 'gaji orang standar',
+            'gaji_pokok' => 555,
+            'note_gaji' => 'nama|jabatan',
+            'karyawan_id' => 1,
         ]);
 
-        Gaji::create([
-            'id' => 2,
-            'gaji_pokok' => 2000000,
-            'note_gaji' => 'gaji orang bekasi',
-        ]);
-
-        Gaji::create([
-            'id' => 3,
-            'gaji_pokok' => 3000000,
-            'note_gaji' => 'gaji orang elit',
-        ]);
-
-        // Creating multiple users using a factory
-        //Karyawan::factory()->count(5)->create();
+        Gaji::factory()->count(19)->create();
     }
 }
