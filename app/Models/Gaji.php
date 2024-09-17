@@ -15,4 +15,19 @@ class Gaji extends Model
 	{
 		return $this->belongsTo(Karyawan::class);
 	}
+	public function absensi()
+	{
+		return $this->hasMany(Absensi::class);
+	}
+
+	public function hitungAbsensiPerBulanTahun($bulan, $tahun)
+{
+    $absensiCount = $this->absensis()
+        ->whereYear('bulan_tahun', $tahun)
+        ->whereMonth('bulan_tahun', $bulan)
+        ->count();
+
+    return $absensiCount;
+}
+
 }

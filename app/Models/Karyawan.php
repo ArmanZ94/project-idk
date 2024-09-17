@@ -24,4 +24,8 @@ class Karyawan extends Model
 	{
 		return $this->belongsTo(Jabatan::class);
 	}
+	public function user()
+	{
+		return $this->belongsTo(User::class);
+	}
 }
