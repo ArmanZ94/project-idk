@@ -12,6 +12,8 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/login', [AuthController::class, 'loginPost'])->name('login');
+
+
 });
 
 Route::group(['middleware' => ['auth','IsUnverified']], function () {
@@ -36,6 +38,23 @@ Route::group(['middleware' => ['auth','IsAdmin']], function () {
 });
 
 Route::delete('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
+
 Route::get('/blank', function() {
     return response('blank', 200);
 })->name('blank');
+
+Route::get('/about', function() {
+    return view('landing.about');
+})->name('about');
+
+Route::get('/landing', function() {
+    return view('landing.index');
+})->name('landing');
+
+Route::get('/contacts', function() {
+    return view('landing.contacts');
+})->name('contacts');
+
+Route::get('/typography', function() {
+    return view('landing.typography');
+})->name('typography');
