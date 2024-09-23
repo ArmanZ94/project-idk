@@ -6235,7 +6235,7 @@ html.tablet .ui-to-top {
 .rd-navbar-fixed .rd-navbar-nav-wrap {
 	position: fixed;
 	left: 0;
-	top: -56px;
+	top: -72px;
 	bottom: -56px;
 	z-index: 1079;
 	width: 270px;
@@ -7093,7 +7093,7 @@ html.rd-navbar-fixed-linked .page {
 }
 
 .rd-navbar-transparent.rd-navbar-static .rd-navbar-main-inner {
-	background-color: rgba(46, 56, 68, 0.3);
+	background-color: #191919;
 }
 
 .rd-navbar-transparent.rd-navbar-static .rd-navbar-main {
@@ -7110,7 +7110,6 @@ html.rd-navbar-fixed-linked .page {
 
 .rd-navbar-transparent.rd-navbar-static .rd-navbar-info .icon {
 	margin-right: 10px;
-	padding-top: 0.2em;
 	font-size: 18px;
 }
 
@@ -7145,7 +7144,7 @@ html.rd-navbar-fixed-linked .page {
 .rd-navbar-transparent.rd-navbar-static .rd-navbar-brand img {
 	width: auto;
 	height: auto;
-	max-width: 120px;
+	max-width: 160px;
 	max-height: 120px;
 }
 
@@ -7178,7 +7177,7 @@ html.rd-navbar-fixed-linked .page {
 
 @media (min-width: 1600px) {
 	.rd-navbar-transparent.rd-navbar-static .rd-navbar-main {
-		padding: 35px 0 38px;
+		padding: 20px 0 20px;
 	}
 	.rd-navbar-transparent.rd-navbar-static .rd-menu {
 		margin-top: 34px;
