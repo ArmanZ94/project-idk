@@ -18,7 +18,6 @@
                   <div class="col-md-9 col-lg-7 offset-md-1 offset-xxl-0">
                     <h1><span class="d-block" data-caption-animate="fadeInUp" data-caption-delay="100">Professional Accounting</span><span class="d-block text-light" data-caption-animate="fadeInUp" data-caption-delay="200">& Tax Services</span></h1>
                     <p class="lead" data-caption-animate="fadeInUp" data-caption-delay="350">Providing every client with the attention they deserve.</p>
-                    <div class="button-wrap-default" data-caption-animate="fadeInUp" data-caption-delay="450"><a class="button button-secondary-text" href="#">Read more</a></div>
                   </div>
                 </div>
               </div>
@@ -31,7 +30,6 @@
                   <div class="col-md-9 col-lg-7 offset-md-1 offset-xxl-0">
                     <h1><span class="d-block" data-caption-animate="fadeInUp" data-caption-delay="100">Full Accounting Support</span><span class="d-block text-light" data-caption-animate="fadeInUp" data-caption-delay="200">for Your Business</span></h1>
                     <p class="lead" data-caption-animate="fadeInUp" data-caption-delay="350">Get rid of any accounting issues with our team’s assistance.</p>
-                    <div class="button-wrap-default" data-caption-animate="fadeInUp" data-caption-delay="450"><a class="button button-secondary-text" href="#">Read more</a></div>
                   </div>
                 </div>
               </div>
@@ -44,7 +42,6 @@
                   <div class="col-md-9 col-lg-7 offset-md-1 offset-xxl-0">
                     <h1><span class="d-block" data-caption-animate="fadeInUp" data-caption-delay="100">#1 Tax Services Provider</span><span class="d-block text-light" data-caption-animate="fadeInUp" data-caption-delay="200">Since the Late 1990s</span></h1>
                     <p class="lead" data-caption-animate="fadeInUp" data-caption-delay="350">We offer specialist tax knowledge and full 24/7 support.</p>
-                    <div class="button-wrap-default" data-caption-animate="fadeInUp" data-caption-delay="450"><a class="button button-secondary-text" href="#">Read more</a></div>
                   </div>
                 </div>
               </div>
@@ -90,21 +87,6 @@
           </div>
         </div>
       </section>
-      <!-- Download Our Tax Guide App-->
-      <section class="section bg-gray-100 box-image-left">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6 wow fadeInLeft">
-              <div class="section-lg section-lg-top-100">
-                <h2 class="title-icon title-icon-2"><span class="icon icon-default mercury-icon-touch"></span><span>Download Our <br><span class="text-light">Tax Guide App</span></span></h2>
-                <p class="big">We are glad to introduce our brand new Tax Guide App, a perfect solution for individual tax management our clients have been waiting for. It is available now for all iOS and Android device owners.</p>
-                <div class="group-sm group-wrap-2"><a class="button button-primary" href="#">Get iOS app</a><a class="button button-icon button-icon-right button-secondary" href="#"><span>Get Android app</span><span class="icon fa fa-android"></span></a></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="box-image-item box-image-video novi-background bg-image" style="background-image: url(images/index-874x534.jpg)"><a class="icon novi-icon fa fa-caret-right" href="//www.youtube.com/embed/KFVUxSynSXc" data-lightgallery="item"></a></div>
-      </section>
       <!-- Our Mission-->
       <section class="section bg-default section-md">
         <div class="container">
@@ -116,7 +98,7 @@
                 <li>Providing high-quality accounting & tax services</li>
                 <li>Sharing professional experience in tax management</li>
                 <li>Offering full support to all our clients</li>
-              </ul><a class="button button-primary" href="#">Read more</a>
+              </ul>
             </div>
             <div class="col-md-6">
               <div class="row">

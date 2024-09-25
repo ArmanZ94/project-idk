@@ -1490,7 +1490,7 @@ a[href*='tel'], a[href*='mailto'] {
 
 @media (min-width: 1200px) {
 	.box-counter {
-		padding: 64px 15px;
+		padding: 50px 15px;
 	}
 }
 
