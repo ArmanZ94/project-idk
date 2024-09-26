@@ -67,11 +67,17 @@
                             </div>
                             <div class="mb-3">
                                 <label for="isi_artikel" class="form-label">Isi Artikel</label>
-                                <textarea name="isi_artikel" class="form-control" id="isi_artikel" rows="5" required>{{ old('isi_artikel') }}</textarea>
+                                <textarea name="isi_artikel" class="form-control" id="isi_artikel" rows="5" required>{{old('isi_artikel', $artikel->isi_artikel)}}</textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="img_artikel" class="form-label">Gambar Artikel</label>
                                 <input type="file" name="img_artikel" class="form-control" id="img_artikel">
+                            </div>
+                            <div class="mb-3">
+                                @if($artikel->img_artikel)
+                                    <p>Gambar saat ini:</p>
+                                    <img src="{{ asset('storage/' . $artikel->img_artikel) }}" alt="Gambar Artikel" width="150">
+                                @endif
                             </div>
                             <div class="mb-3">
                                 <div class="d-grid gap-2" style="grid-template-columns: repeat(2, 1fr);">

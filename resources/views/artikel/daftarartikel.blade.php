@@ -75,8 +75,15 @@
 				<tr>
 					<td>{{ $artikel->id }}</td>
 					<td>{{ $artikel->judul_artikel }}</td>
-					<td>{{ $artikel->isi_artikel }}</td>
-					<td>{{ optional($artikel->artikel)->img_artikel ?? 'Arifuwulogo.png'}}</td>
+					<td>{{ Str::limit($artikel->isi_artikel, 100) }}</td>
+					<td>
+						@if($artikel->img_artikel)
+                            <img src="{{ asset('storage/' . $artikel->img_artikel) }}" width="100" alt="Gambar Artikel">
+                        @else
+                        	Tidak ada gambar
+                        @endif
+					</td>
+
 					<td>
 						<form onsubmit="return confirm('Apakah Anda Yakin ?');"
 							action="{{ route('artikel.hapus', $artikel->id) }}" method="POST">

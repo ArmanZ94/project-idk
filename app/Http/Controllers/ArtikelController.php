@@ -13,7 +13,7 @@ class ArtikelController extends Controller
     $request->validate([
         'judul_artikel' => 'required|string|max:255',
         'isi_artikel' => 'required|string',
-        'img_artikel' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+        'img_artikel' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:12048'
     ]);
 
     // Upload gambar jika ada
@@ -63,14 +63,20 @@ class ArtikelController extends Controller
         $request->validate([
             'judul_artikel' => 'required|string|max:255',
             'isi_artikel' => 'required|string',
-            'img_artikel' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'img_artikel' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:12048'
         ]);
 
 		$artikel = Artikel::findOrFail($id);
+
+        $imagePath = null;
+        if ($request->hasFile('img_artikel')) {
+            $imagePath = $request->file('img_artikel')->store('image_artikel', 'public');
+        }
+
         $artikel->update([
             'judul_artikel' => $request->judul_artikel,
             'isi_artikel' => $request->isi_artikel,
-            'img_artikel' => $request->img_artikel,
+            'img_artikel' => $imagePath,
         ]);
 
         return redirect()
