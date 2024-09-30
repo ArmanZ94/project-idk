@@ -66,12 +66,12 @@
           <div class="col-md-12 col-lg-4">
             <h5>Partners</h5>
             <div class="row row-30 align-items-center text-center">
-              <div class="col-6 col-md-4 col-lg-6"><a class="link-image" href="#"><img src="images/footer-1-brand-1-144x70.png" alt="" width="144" height="35"/></a></div>
-              <div class="col-6 col-md-4 col-lg-6"><a class="link-image" href="#"><img src="images/footer-1-brand-2-121x68.png" alt="" width="121" height="34"/></a></div>
-              <div class="col-6 col-md-4 col-lg-6"><a class="link-image" href="#"><img src="images/footer-1-brand-3-121x33.png" alt="" width="121" height="16"/></a></div>
-              <div class="col-6 col-md-4 col-lg-6"><a class="link-image" href="#"><img src="images/footer-1-brand-4-101x76.png" alt="" width="101" height="38"/></a></div>
-              <div class="col-6 col-md-4 col-lg-6"><a class="link-image" href="#"><img src="images/footer-1-brand-5-107x53.png" alt="" width="107" height="26"/></a></div>
-              <div class="col-6 col-md-4 col-lg-6"><a class="link-image" href="#"><img src="images/footer-1-brand-6-97x52.png" alt="" width="97" height="26"/></a></div>
+              <div class="col-6 col-md-4 col-lg-6"><a class="link-image" href="#"><img src="/images/footer-1-brand-1-144x70.png" alt="" width="144" height="35"/></a></div>
+              <div class="col-6 col-md-4 col-lg-6"><a class="link-image" href="#"><img src="/images/footer-1-brand-2-121x68.png" alt="" width="121" height="34"/></a></div>
+              <div class="col-6 col-md-4 col-lg-6"><a class="link-image" href="#"><img src="/images/footer-1-brand-3-121x33.png" alt="" width="121" height="16"/></a></div>
+              <div class="col-6 col-md-4 col-lg-6"><a class="link-image" href="#"><img src="/images/footer-1-brand-4-101x76.png" alt="" width="101" height="38"/></a></div>
+              <div class="col-6 col-md-4 col-lg-6"><a class="link-image" href="#"><img src="/images/footer-1-brand-5-107x53.png" alt="" width="107" height="26"/></a></div>
+              <div class="col-6 col-md-4 col-lg-6"><a class="link-image" href="#"><img src="/images/footer-1-brand-6-97x52.png" alt="" width="97" height="26"/></a></div>
             </div>
           </div>
         </div>

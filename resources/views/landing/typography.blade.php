@@ -12,7 +12,7 @@
       <section class="breadcrumbs-custom bg-image novi-background bg-primary">
         <div class="container">
           <ul class="breadcrumbs-custom-path">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="{{route('landing')}}">Home</a></li>
             <li class="active">Typography</li>
           </ul>
         </div>
@@ -115,7 +115,7 @@
             </div>
           </div>
         </div>
-        <div class="box-image-item novi-background bg-image" style="background-image: url(images/typography-1-946x485.jpg)"></div>
+        <div class="box-image-item novi-background bg-image" style="background-image: url(/images/typography-1-946x485.jpg)"></div>
       </section>
       <!-- Testimonials-->
       <section class="section section-lg bg-default">
@@ -126,7 +126,7 @@
               <blockquote class="quote quote-left-align">
                 <q class="big">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut interdum quam. In hac habitasse platea dictumst. Phasellus ex metus, mattis et elit et, varius semper urna.</q>
                 <div class="quote-meta unit">
-                  <div class="unit-left"><img class="quote-img" src="images/testimonials-1-138x138.jpg" alt="" width="138" height="69"/>
+                  <div class="unit-left"><img class="quote-img" src="/images/testimonials-1-138x138.jpg" alt="" width="138" height="69"/>
                   </div>
                   <div class="unit-body">
                     <div class="author">
@@ -143,7 +143,7 @@
                 <div class="col-sm-6">
                   <blockquote class="quote quote-center quote-center-active">
                     <q class="big">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut interdum quam. In hac habitasse platea dictumst. Phasellus ex metus, mattis et elit et.</q>
-                    <div class="quote-meta"><img class="quote-img" src="images/testimonials-2-138x138.jpg" alt="" width="138" height="69"/>
+                    <div class="quote-meta"><img class="quote-img" src="/images/testimonials-2-138x138.jpg" alt="" width="138" height="69"/>
                       <div class="author">
                         <cite>Victor Jackson</cite>
                       </div>
@@ -155,7 +155,7 @@
                   <div class="owl-item-simulate">
                     <blockquote class="quote quote-center">
                       <q class="big">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</q>
-                      <div class="quote-meta"><img class="quote-img" src="images/testimonials-3-138x138.jpg" alt="" width="138" height="69"/>
+                      <div class="quote-meta"><img class="quote-img" src="/images/testimonials-3-138x138.jpg" alt="" width="138" height="69"/>
                         <div class="author">
                           <cite>Olivia White</cite>
                         </div>
@@ -354,7 +354,7 @@
       <section class="section section-lg bg-default">
         <div class="container">
           <div class="row row-30">
-            <div class="col-md-6"><img src="images/typography-2-544x342.jpg" alt="" width="544" height="171"/>
+            <div class="col-md-6"><img src="/images/typography-2-544x342.jpg" alt="" width="544" height="171"/>
             </div>
             <div class="col-md-6 col-xl-4">
               <h5>Image Left</h5>
@@ -367,7 +367,7 @@
       <section class="section section-lg bg-default">
         <div class="container">
           <div class="row row-30 flex-md-row-reverse justify-content-end">
-            <div class="col-md-6"><img src="images/typography-2-544x342.jpg" alt="" width="544" height="171"/>
+            <div class="col-md-6"><img src="/images/typography-2-544x342.jpg" alt="" width="544" height="171"/>
             </div>
             <div class="col-md-6 col-xl-4">
               <h5>Image Right</h5>
@@ -382,7 +382,7 @@
           <div class="row">
             <div class="col-md-10 col-lg-8 col-xl-6">
               <h5>Image Centered</h5>
-              <figure class="figure-light"><img class="img-centered" src="images/typography-2-544x342.jpg" alt="" width="544" height="171"/>
+              <figure class="figure-light"><img class="img-centered" src="/images/typography-2-544x342.jpg" alt="" width="544" height="171"/>
               </figure>
               <p class="big">Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page.</p>
             </div>
@@ -391,8 +391,6 @@
       </section>
       @include('layouts.footer')
     </div>
-    <div class="snackbars" id="form-output-global"></div>
-    <script src="js/core.min.js"></script>
-    <script src="js/script.js"></script>
+    @include('layouts.footlink')
   </body>
 </html>

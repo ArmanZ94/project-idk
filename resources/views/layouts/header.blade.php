@@ -23,13 +23,15 @@
                 <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                 <!--RD Navbar Brand-->
                 <div class="rd-navbar-brand">
-                  <!--Brand--><a class="brand" href="{{route('landing')}}"><img class="brand-logo-light" src="images\logo-default-293x44.png"/><img class="brand-logo-dark" src="images\logo-inverse-310x44.png"/></a>
+                  <!--Brand--><a class="brand" href="{{route('landing')}}"><img class="brand-logo-light" src="/images/logo-default-293x44.png"/><img class="brand-logo-dark" src="/images/logo-inverse-310x44.png"/></a>
                 </div>
               </div>
               <div class="rd-navbar-main-element">
                 <div class="rd-navbar-nav-wrap">
                   <ul class="rd-navbar-nav">
                     <li class="rd-nav-item"><a class="rd-nav-link" href="{{route('landing')}}">Home</a>
+                    </li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="{{route('article')}}">Article</a>
                     </li>
                     <li class="rd-nav-item"><a class="rd-nav-link" href="{{route('about')}}">About</a>
                     </li>
@@ -45,5 +47,5 @@
         </div>
       </nav>
     </div>
-    {{--<div class="rd-navbar-bg novi-background bg-image" style="background-image: url(images/bg-navbar.jpg)"></div>--}}
+    <div class="rd-navbar-bg novi-background bg-image" style="background-image: url(/images/bg-navbar.jpg)"></div>
 </header>

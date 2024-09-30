@@ -11,7 +11,7 @@
       <!--Swiper-->
       <section class="section swiper-container swiper-slider swiper-slider-1 context-dark" data-loop="true" data-autoplay="5000" data-simulate-touch="false">
         <div class="swiper-wrapper">
-          <div class="swiper-slide" data-slide-bg="images/index-1-slider-1-1920x768.jpg">
+          <div class="swiper-slide" data-slide-bg="/images/index-1-slider-1-1920x768.jpg">
             <div class="swiper-slide-caption section-lg">
               <div class="container">
                 <div class="row">
@@ -23,7 +23,7 @@
               </div>
             </div>
           </div>
-          <div class="swiper-slide" data-slide-bg="images/index-1-slider-2-1920x768.jpg">
+          <div class="swiper-slide" data-slide-bg="/images/index-1-slider-2-1920x768.jpg">
             <div class="swiper-slide-caption section-lg">
               <div class="container">
                 <div class="row">
@@ -35,7 +35,7 @@
               </div>
             </div>
           </div>
-          <div class="swiper-slide" data-slide-bg="images/index-1-slider-3-1920x768.jpg">
+          <div class="swiper-slide" data-slide-bg="/images/index-1-slider-3-1920x768.jpg">
             <div class="swiper-slide-caption section-lg">
               <div class="container">
                 <div class="row">
@@ -143,7 +143,7 @@
           </div>
         </div>
       </section>
-      <section class="parallax-container" data-parallax-img="images/parallax-1-1920x1026.jpg">
+      <section class="parallax-container" data-parallax-img="/images/parallax-1-1920x1026.jpg">
         <div class="parallax-content section-xl context-dark text-center">
           <div class="container">
             <div class="row justify-content-center">
@@ -199,12 +199,33 @@
         </div>
       </section>
 
-      <!-- Latest Articles-->
+<!-- resources/views/artikel/index.blade.php -->
+<section class="section bg-default section-md">
+  <div class="container">
+      <h2 class="title-icon">
+          <span class="icon icon-default mercury-icon-news"></span>
+          <span>Latest <span class="text-light">Articles</span></span>
+      </h2>
+      @foreach($artikels as $artikel)
+      <div class="box-image-small {{ $loop->iteration % 2 == 0 ? 'box-image-small-right' : 'box-image-small-left' }}">
+          <div class="item-image bg-image novi-background" style="background-image: url({{ asset('storage/'.$artikel->img_artikel) }})"></div>
+          <div class="item-body wow {{ $loop->iteration % 2 == 0 ? 'fadeInLeft' : 'fadeInRight' }}">
+              <p>{{ $artikel->created_at->format('F d, Y') }}</p>
+              <h4><a href="{{ route('showartikel', $artikel->id) }}">{{ $artikel->judul_artikel }}</a></h4>
+              <p class="big">{{ Str::limit($artikel->isi_artikel, 150) }}</p>
+          </div>
+      </div>
+      @endforeach
+  </div>
+</section>
+
+
+      <!-- Latest Articles
       <section class="section bg-default section-md">
         <div class="container">
           <h2 class="title-icon"><span class="icon icon-default mercury-icon-news"></span><span>Latest <span class="text-light">Articles</span></span></h2>
           <div class="box-image-small box-image-small-left">
-            <div class="item-image bg-image novi-nackground" style="background-image: url(images/index-1-2-586x334.jpg)"></div>
+            <div class="item-image bg-image novi-nackground" style="background-image: url(/images/index-1-2-586x334.jpg)"></div>
             <div class="item-body wow fadeInRight">
               <p>July 12, 2019</p>
               <h4><a href="#">Saving Money When Paying Taxes</a></h4>
@@ -212,7 +233,7 @@
             </div>
           </div>
           <div class="box-image-small box-image-small-right">
-            <div class="item-image bg-image novi-nackground" style="background-image: url(images/index-1-3-580x334.jpg)"></div>
+            <div class="item-image bg-image novi-nackground" style="background-image: url(/images/index-1-3-580x334.jpg)"></div>
             <div class="item-body wow fadeInLeft">
               <p>July 12, 2019</p>
               <h4><a href="#">What Is a 1035 Exchange?</a></h4>
@@ -220,12 +241,9 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> --->
       @include('layouts.footer')
     </div>
-    <div class="snackbars" id="form-output-global"></div>
-    <script src="js/core.min.js"></script>
-    <script src="js/script.js"></script>
-    <!--coded by Starlight-->
+    @include('layouts.footlink')
   </body>
 </html>

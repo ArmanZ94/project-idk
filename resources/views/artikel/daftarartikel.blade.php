@@ -75,7 +75,7 @@
 				<tr>
 					<td>{{ $artikel->id }}</td>
 					<td>{{ $artikel->judul_artikel }}</td>
-					<td>{{ Str::limit($artikel->isi_artikel, 100) }}</td>
+					<td style="word-wrap: break-word; white-space: normal;">{{ Str::limit($artikel->isi_artikel, 500) }}</td>
 					<td>
 						@if($artikel->img_artikel)
                             <img src="{{ asset('storage/' . $artikel->img_artikel) }}" width="100" alt="Gambar Artikel">

@@ -9,18 +9,18 @@ use App\Http\Controllers\LandingController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'guest'], function () {
-    Route::get('/', [AuthController::class, 'welcome'])->name('welcome');
+    Route::get('/welcome', [AuthController::class, 'welcome'])->name('welcome');
     Route::get('/register', [AuthController::class, 'register'])->name('register');
     Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/login', [AuthController::class, 'loginPost'])->name('login');
 
-    Route::get('/landing', [LandingController::class, 'landing'])->name('landing');
+    Route::get('/', [LandingController::class, 'landing'])->name('landing');
+    Route::get('/article', [LandingController::class, 'article'])->name('article');
+    Route::get('/showarticle/{id}', [LandingController::class, 'showartikel'])->name('showartikel');
     Route::get('/about', [LandingController::class, 'about'])->name('about');
     Route::get('/typography', [LandingController::class, 'typography'])->name('typography');
     Route::get('/contacts', [LandingController::class, 'contacts'])->name('contacts');
-
-    
 });
 
 Route::group(['middleware' => ['auth','IsUnverified']], function () {
@@ -43,7 +43,7 @@ Route::group(['middleware' => ['auth','IsAdmin']], function () {
 	Route::delete('/user/hapus/{id}',[ UserController::class,'u_hapus'])->name('user.hapus');
 	Route::put('/user/update/{id}',[ UserController::class,'u_update'])->name('user.update');
 
-    Route::get('/artikel', [ArtikelController::class, 'a_daftar'])->name('artikel.daftarartikel'); 
+    Route::get('/artikel', [ArtikelController::class, 'a_daftar'])->name('artikel.daftarartikel');
     Route::get('/artikel/tambah', [ArtikelController::class, 'a_tambah'])->name('artikel.tambah'); 
     Route::get('/artikel/edit/{id}', [ArtikelController::class, 'a_edit'])->name('artikel.edit');
     Route::post('/artikel', [ArtikelController::class, 'a_simpan'])->name('artikel.simpan'); 

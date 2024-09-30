@@ -58,7 +58,7 @@ class ArtikelController extends Controller
         return view('artikel.edit', compact('artikel'));
     }
 
-    public function a_update(Request $request, $id)
+    public function a_updates(Request $request, $id)
     {
         $request->validate([
             'judul_artikel' => 'required|string|max:255',
@@ -82,5 +82,46 @@ class ArtikelController extends Controller
         return redirect()
             ->route('artikel.daftarartikel');
     }
+
+    public function a_update(Request $request, $id)
+{
+    // Validasi input
+    $request->validate([
+        'judul_artikel' => 'required|string|max:255',
+        'isi_artikel' => 'required|string',
+        'img_artikel' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:12048'
+    ]);
+
+    // Dapatkan artikel berdasarkan ID
+    $artikel = Artikel::findOrFail($id);
+
+    // Menyimpan path gambar lama (jika ada)
+    $oldImagePath = $artikel->img_artikel;
+
+    // Menginisialisasi variable untuk gambar baru
+    $imagePath = $oldImagePath;
+
+    // Jika ada gambar baru yang diupload
+    if ($request->hasFile('img_artikel')) {
+        // Simpan gambar baru
+        $imagePath = $request->file('img_artikel')->store('image_artikel', 'public');
+
+        // Hapus gambar lama jika ada
+        if ($oldImagePath && \Storage::disk('public')->exists($oldImagePath)) {
+            \Storage::disk('public')->delete($oldImagePath);
+        }
+    }
+
+    // Update artikel dengan data baru
+    $artikel->update([
+        'judul_artikel' => $request->judul_artikel,
+        'isi_artikel' => $request->isi_artikel,
+        'img_artikel' => $imagePath,
+    ]);
+
+    // Redirect kembali ke daftar artikel
+    return redirect()->route('artikel.daftarartikel')->with('success', 'Artikel berhasil diperbarui.');
+}
+
 
 }
