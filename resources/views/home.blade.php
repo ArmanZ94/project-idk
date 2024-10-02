@@ -37,6 +37,9 @@
 						<li class="nav-item">
 							<a class="nav-link active" aria-current="page" href="{{route('artikel.daftarartikel')}}">Daftar Artikel</a>
 					  	</li>
+						  <li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="{{route('banner.daftarbanner')}}">Daftar Banner</a>
+					  	</li>
             		</ul>
             		<form action="{{ route('logout') }}" method="POST" class="d-flex" role="search">
                 		@csrf

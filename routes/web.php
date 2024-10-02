@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\LandingController;
 use Illuminate\Support\Facades\Route;
 
@@ -50,6 +51,12 @@ Route::group(['middleware' => ['auth','IsAdmin']], function () {
     Route::delete('/artikel/hapus/{id}', [ArtikelController::class, 'a_hapus'])->name('artikel.hapus');
     Route::put('/artikel/update/{id}', [ArtikelController::class, 'a_update'])->name('artikel.update');
 
+    Route::get('/banner', [BannerController::class, 'b_daftar'])->name('banner.daftarbanner');
+    Route::get('/banner/tambah', [BannerController::class, 'b_tambah'])->name('banner.tambah'); 
+    Route::get('/banner/edit/{id}', [BannerController::class, 'b_edit'])->name('banner.edit');
+    Route::post('/banner', [BannerController::class, 'b_simpan'])->name('banner.simpan'); 
+    Route::delete('/banner/hapus/{id}', [BannerController::class, 'b_hapus'])->name('banner.hapus');
+    Route::put('/banner/update/{id}', [BannerController::class, 'b_update'])->name('banner.update');
 });
 
 Route::delete('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');

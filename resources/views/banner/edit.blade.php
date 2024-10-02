@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Edit Artikel</title>
+	<title>Edit Banner</title>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
@@ -48,7 +48,7 @@
         </nav>
     </header>
 	<div class="container">
-        <h1 class="text-center mt-3">Edit Artikel</h1>
+        <h1 class="text-center mt-3">Edit Banner</h1>
         <div class="row justify-content-center">
             <div class="col-lg-4">
                 <div class="card" style="color: #ffffff; background-color: #121212;">
@@ -58,29 +58,25 @@
                                 {{ Session::get('error') }}
                             </div>
                         @endif
-                        <form action="{{ route('artikel.update', $artikel->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('banner.update', $banner->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="mb-3">
-                                <label for="judul_artikel" class="form-label">Judul</label>
-                                <input type="text" name="judul_artikel" class="form-control" id="judul_artikel" value="{{ old('judul_artikel', $artikel->judul_artikel) }}" required>
+                                <label for="note_banner" class="form-label">Note</label>
+                                <input type="text" name="note_banner" class="form-control" id="note_banner" value="{{ old('note_banner', $banner->note_banner) }}" required>
                             </div>
                             <div class="mb-3">
-                                <label for="isi_artikel" class="form-label">Isi Artikel</label>
-                                <textarea name="isi_artikel" class="form-control" id="isi_artikel" rows="5" required>{{old('isi_artikel', $artikel->isi_artikel)}}</textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label for="img_artikel" class="form-label">Gambar Artikel</label>
-                                <input type="file" name="img_artikel" class="form-control" id="img_artikel">
+                                <label for="img_banner" class="form-label">Gambar Banner</label>
+                                <input type="file" name="img_banner" class="form-control" id="img_banner">
                             </div>
                             <div class="mb-3">
                                 <p>Gambar saat ini:</p>
-                                <img src="{{ asset('storage/images/artikel/' . $artikel->img_artikel) }}" alt="Gambar Artikel" width="150">
+                                <img src="{{ asset('storage/images/banner/' . $banner->img_banner) }}" alt="Gambar Banner" width="150">
                             </div>
                             <div class="mb-3">
                                 <div class="d-grid gap-2" style="grid-template-columns: repeat(2, 1fr);">
                                     <button class="btn btn-primary">Update</button>
-                                    <a href="{{ route('artikel.daftarartikel') }}" class="btn btn-md btn-secondary">Kembali</a>
+                                    <a href="{{ route('banner.daftarbanner') }}" class="btn btn-md btn-secondary">Kembali</a>
                                 </div>
                             </div>
                         </form>

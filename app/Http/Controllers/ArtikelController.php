@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Artikel;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 
 class ArtikelController extends Controller
 {
@@ -16,17 +17,14 @@ class ArtikelController extends Controller
         'img_artikel' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:12048'
     ]);
 
-    // Upload gambar jika ada
-    $imagePath = null;
-    if ($request->hasFile('img_artikel')) {
-        $imagePath = $request->file('img_artikel')->store('image_artikel', 'public');
-    }
+    $image = $request->file('img_artikel');
+    $image->storeAs('public/images/artikel', $image->hashName());
 
     // Buat artikel
     $request->user()->artikel()->create([
         'judul_artikel' => $request->judul_artikel,
         'isi_artikel' => $request->isi_artikel,
-        'img_artikel' => $imagePath,
+        'img_artikel' => $image->hashName(),
     ]);
 
     return redirect()->route('artikel.daftarartikel')->with('success', 'Artikel berhasil dibuat!');
@@ -58,7 +56,7 @@ class ArtikelController extends Controller
         return view('artikel.edit', compact('artikel'));
     }
 
-    public function a_updates(Request $request, $id)
+    public function a_update(Request $request, $id)
     {
         $request->validate([
             'judul_artikel' => 'required|string|max:255',
@@ -68,60 +66,30 @@ class ArtikelController extends Controller
 
 		$artikel = Artikel::findOrFail($id);
 
-        $imagePath = null;
         if ($request->hasFile('img_artikel')) {
-            $imagePath = $request->file('img_artikel')->store('image_artikel', 'public');
+
+            //upload new image
+            $image = $request->file('img_artikel');
+            $image->storeAs('public/images/artikel', $image->hashName());
+
+            //delete old image
+            Storage::delete('public/images/artikel/'.$artikel->img_artikel);
+
+            //update product with new imag
+            $artikel->update([
+                'judul_artikel' => $request->judul_artikel,
+                'isi_artikel' => $request->isi_artikel,
+                'img_artikel' => $image->hashName(),
+            ]);
+
+        } else {
+            //update product without image
+            $artikel->update([
+                'judul_artikel' => $request->judul_artikel,
+                'isi_artikel' => $request->isi_artikel,
+            ]);
         }
-
-        $artikel->update([
-            'judul_artikel' => $request->judul_artikel,
-            'isi_artikel' => $request->isi_artikel,
-            'img_artikel' => $imagePath,
-        ]);
-
-        return redirect()
-            ->route('artikel.daftarartikel');
+        return redirect()->route('artikel.daftarartikel');
     }
-
-    public function a_update(Request $request, $id)
-{
-    // Validasi input
-    $request->validate([
-        'judul_artikel' => 'required|string|max:255',
-        'isi_artikel' => 'required|string',
-        'img_artikel' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:12048'
-    ]);
-
-    // Dapatkan artikel berdasarkan ID
-    $artikel = Artikel::findOrFail($id);
-
-    // Menyimpan path gambar lama (jika ada)
-    $oldImagePath = $artikel->img_artikel;
-
-    // Menginisialisasi variable untuk gambar baru
-    $imagePath = $oldImagePath;
-
-    // Jika ada gambar baru yang diupload
-    if ($request->hasFile('img_artikel')) {
-        // Simpan gambar baru
-        $imagePath = $request->file('img_artikel')->store('image_artikel', 'public');
-
-        // Hapus gambar lama jika ada
-        if ($oldImagePath && \Storage::disk('public')->exists($oldImagePath)) {
-            \Storage::disk('public')->delete($oldImagePath);
-        }
-    }
-
-    // Update artikel dengan data baru
-    $artikel->update([
-        'judul_artikel' => $request->judul_artikel,
-        'isi_artikel' => $request->isi_artikel,
-        'img_artikel' => $imagePath,
-    ]);
-
-    // Redirect kembali ke daftar artikel
-    return redirect()->route('artikel.daftarartikel')->with('success', 'Artikel berhasil diperbarui.');
-}
-
 
 }
