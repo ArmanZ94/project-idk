@@ -62,8 +62,14 @@
                             @csrf
                             @method('PUT')
                             <div class="mb-3">
-                                <label for="note_banner" class="form-label">Note</label>
-                                <input type="text" name="note_banner" class="form-control" id="note_banner" value="{{ old('note_banner', $banner->note_banner) }}" required>
+                                <label for="text_banner" class="form-label">Text Banner</label>
+                                <textarea name="text1_banner" class="form-control" id="text1_banner" rows="3" required>{{old('text1_banner', $banner->text1_banner)}}</textarea>
+                            </div>
+                            <div class="mb-3">
+                                <textarea name="text2_banner" class="form-control" id="text2_banner" rows="3" required>{{old('text2_banner', $banner->text2_banner)}}</textarea>
+                            </div>
+                            <div class="mb-3">
+                                <textarea name="text3_banner" class="form-control" id="text3_banner" rows="3" required>{{old('text3_banner', $banner->text3_banner)}}</textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="img_banner" class="form-label">Gambar Banner</label>

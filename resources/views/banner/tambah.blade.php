@@ -61,8 +61,14 @@
                         <form action="{{ route('banner.simpan') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
-                                <label for="note_banner" class="form-label">Note</label>
-                                <input type="text" name="note_banner" class="form-control" id="note_banner" placeholder="Note Banner" required>
+                                <label for="text_banner" class="form-label">Text Banner</label>
+                                <textarea type="text" name="text1_banner" class="form-control" id="text1_banner" rows="3" placeholder="Text1"required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <textarea type="text" name="text2_banner" class="form-control" id="text2_banner" rows="3" placeholder="Text2"required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <textarea type="text" name="text3_banner" class="form-control" id="text3_banner" rows="3" placeholder="Text3"required></textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="img_banner" class="form-label">Gambar Banner</label>

@@ -13,7 +13,9 @@ class BannerController extends Controller
     public function b_simpan(Request $request)
     {
     $request->validate([
-        'note_banner' => 'required|string|max:255',
+        'text1_banner' => 'required|string',
+        'text2_banner' => 'required|string',
+        'text3_banner' => 'required|string',
         'img_banner' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:12048'
     ]);
 
@@ -22,7 +24,9 @@ class BannerController extends Controller
 
     // Buat banner
     Banner::create([
-        'note_banner' => $request->note_banner,
+        'text1_banner' => $request->text1_banner,
+        'text2_banner' => $request->text2_banner,
+        'text3_banner' => $request->text3_banner,
         'img_banner' => $image->hashName(),
     ]);
 
@@ -58,7 +62,9 @@ class BannerController extends Controller
     public function b_update(Request $request, $id)
     {
         $request->validate([
-            'note_banner' => 'required|string|max:255',
+            'text1_banner' => 'required|string',
+            'text2_banner' => 'required|string',
+            'text3_banner' => 'required|string',
             'img_banner' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:12048'
         ]);
         
@@ -75,14 +81,18 @@ class BannerController extends Controller
 
             //update product with new imag
             $banner->update([
-                'note_banner' => $request->note_banner,
+                'text1_banner' => $request->text1_banner,
+                'text2_banner' => $request->text2_banner,
+                'text3_banner' => $request->text3_banner,
                 'img_banner' => $image->hashName(),
             ]);
 
         } else {
             //update product without image
             $banner->update([
-                'note_banner' => $request->note_banner,
+                'text1_banner' => $request->text1_banner,
+                'text2_banner' => $request->text2_banner,
+                'text3_banner' => $request->text3_banner,
             ]);
         }
         return redirect()->route('banner.daftarbanner');

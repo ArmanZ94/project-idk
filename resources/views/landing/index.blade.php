@@ -9,53 +9,34 @@
     <div class="page">
       @include('layouts.header')
       <!--Swiper-->
+      <!-- Bagian untuk menampilkan banner -->
       <section class="section swiper-container swiper-slider swiper-slider-1 context-dark" data-loop="true" data-autoplay="5000" data-simulate-touch="false">
         <div class="swiper-wrapper">
-          <div class="swiper-slide" data-slide-bg="/images/index-1-slider-1-1920x768.jpg">
-            <div class="swiper-slide-caption section-lg">
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-9 col-lg-7 offset-md-1 offset-xxl-0">
-                    <h1><span class="d-block" data-caption-animate="fadeInUp" data-caption-delay="100">Professional Accounting</span><span class="d-block text-light" data-caption-animate="fadeInUp" data-caption-delay="200">& Tax Services</span></h1>
-                    <p class="lead" data-caption-animate="fadeInUp" data-caption-delay="350">Providing every client with the attention they deserve.</p>
+          @foreach ($banners as $banner)
+              <div class="swiper-slide" data-slide-bg="{{ asset('storage/images/banner/' .$banner->img_banner) }}">
+                  <div class="swiper-slide-caption section-lg">
+                      <div class="container">
+                          <div class="row">
+                              <div class="col-md-9 col-lg-7 offset-md-1 offset-xxl-0">
+                                  <h1>
+                                      <span class="d-block" data-caption-animate="fadeInUp" data-caption-delay="100">{{ $banner->text1_banner }}</span>
+                                      <span class="d-block text-light" data-caption-animate="fadeInUp" data-caption-delay="200">{{ $banner->text2_banner }}</span>
+                                  </h1>
+                                  <p class="lead" data-caption-animate="fadeInUp" data-caption-delay="350">{{ $banner->text3_banner }}</p>
+                              </div>
+                          </div>
+                      </div>
                   </div>
-                </div>
               </div>
-            </div>
-          </div>
-          <div class="swiper-slide" data-slide-bg="/images/index-1-slider-2-1920x768.jpg">
-            <div class="swiper-slide-caption section-lg">
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-9 col-lg-7 offset-md-1 offset-xxl-0">
-                    <h1><span class="d-block" data-caption-animate="fadeInUp" data-caption-delay="100">Full Accounting Support</span><span class="d-block text-light" data-caption-animate="fadeInUp" data-caption-delay="200">for Your Business</span></h1>
-                    <p class="lead" data-caption-animate="fadeInUp" data-caption-delay="350">Get rid of any accounting issues with our team’s assistance.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide" data-slide-bg="/images/index-1-slider-3-1920x768.jpg">
-            <div class="swiper-slide-caption section-lg">
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-9 col-lg-7 offset-md-1 offset-xxl-0">
-                    <h1><span class="d-block" data-caption-animate="fadeInUp" data-caption-delay="100">#1 Tax Services Provider</span><span class="d-block text-light" data-caption-animate="fadeInUp" data-caption-delay="200">Since the Late 1990s</span></h1>
-                    <p class="lead" data-caption-animate="fadeInUp" data-caption-delay="350">We offer specialist tax knowledge and full 24/7 support.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          @endforeach
         </div>
-        <!--Swiper Pagination-->
         <div class="swiper-pagination-wrap">
           <div class="container">
-            <div class="row">
-              <div class="col-md-9 col-lg-7 offset-md-1 offset-xxl-0">
-                <div class="swiper-pagination"></div>
+              <div class="row">
+                  <div class="col-md-9 col-lg-7 offset-md-1 offset-xxl-0">
+                      <div class="swiper-pagination"></div>
+                  </div>
               </div>
-            </div>
           </div>
         </div>
       </section>

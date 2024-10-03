@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Artikel;
+use App\Models\Banner;
 
 use Illuminate\Http\Request;
 
@@ -9,7 +10,8 @@ class LandingController extends Controller
 {
     function landing(){
         $artikels = Artikel::latest('id')->take(2)->get();
-        return view('landing.index', compact('artikels'));
+        $banners = Banner::all();
+        return view('landing.index', compact('artikels','banners'));
     }
 
     function article(){
@@ -18,7 +20,6 @@ class LandingController extends Controller
     }
 
     function showartikel($id){
-
         $artikel = Artikel::findOrFail($id);
         return view('landing.showartikel', compact('artikel'));
     }

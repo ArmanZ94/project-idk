@@ -65,8 +65,10 @@
 			<thead style="vertical-align: middle;">
 				<tr>
 					<th style="width:2%">ID</th>
-					<th>NOTE</th>
-					<th>IMAGE</th>
+					<th>Text1</th>
+					<th>Text2</th>
+					<th>Text3</th>
+					<th style="width:15%">IMAGE</th>
 					<th style="width:11%">
 						<a href="{{route('banner.tambah')}}"class="btn btn-success text-center" style="display: flex;">Tambah</a>
 					</th>
@@ -76,7 +78,9 @@
 				@foreach($banners as $banner)
 				<tr>
 					<td>{{ $banner->id }}</td>
-					<td>{{ $banner->note_banner }}</td>
+					<td style="word-wrap: break-word; white-space: normal;">{{ Str::limit($banner->text1_banner, 500) }}</td>
+					<td style="word-wrap: break-word; white-space: normal;">{{ Str::limit($banner->text2_banner, 500) }}</td>
+					<td style="word-wrap: break-word; white-space: normal;">{{ Str::limit($banner->text3_banner, 500) }}</td>
 					<td>
 						@if($banner->img_banner)
                             <img src="{{asset('storage/images/banner/' . $banner->img_banner) }}" width="100" alt="Gambar Banner">
