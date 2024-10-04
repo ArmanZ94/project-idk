@@ -124,7 +124,7 @@
           </div>
         </div>
       </section>
-      <section class="parallax-container" data-parallax-img="/images/parallax-1-1920x1026.jpg">
+      <section class="parallax-container" data-parallax-img="/images/parallax-1-1920x1026.png">
         <div class="parallax-content section-xl context-dark text-center">
           <div class="container">
             <div class="row justify-content-center">

@@ -11,9 +11,13 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function u_daftar()
+    public function u_daftar(Request $request)
 	{
-		$users = User::latest('id')->paginate(7);
+        $sortBy = $request->query('sort_by', 'id'); // default sort by 'id'
+        $order = $request->query('order', 'asc'); // default order 'asc'
+
+        $users = User::orderBy($sortBy, $order)->paginate(7);
+		//$users = User::latest('id')->paginate(7);
 
         return view('user.daftaruser', compact('users'));
 	}

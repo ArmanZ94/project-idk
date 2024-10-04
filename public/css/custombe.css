@@ -3,7 +3,10 @@
     color: #ffffff;
 }
 .navbar-nav .nav-link:hover{
-    color: #bbff00;
+    color: #00c271;
+}
+.white-color{
+    color:#ffffff;
 }
 .pagination .page-link {
     color: #ffffff; /* White text color */

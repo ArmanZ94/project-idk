@@ -11,10 +11,38 @@
 		<table class="table table-bordered text-left mt-4" style="vertical-align: middle; white-space: nowrap; color:#ffffff; width:100%;">
 			<thead style="vertical-align: middle;">
 				<tr>
-					<th style="width:2%">ID</th>
-					<th>NAMA</th>
-					<th>EMAIL</th>
-					<th>ROLE</th>
+					<th style="width:2%">
+						<a class="white-color" href="{{ route('user.daftaruser', ['sort_by' => 'id', 'order' => request('order') == 'asc' ? 'desc' : 'asc']) }}">
+							ID
+							@if(request('sort_by') == 'id')
+								<span>{{ request('order') == 'asc' ? '🔼' : '🔽' }}</span>
+							@endif
+						</a>
+					</th>
+					<th>
+						<a class="white-color" href="{{ route('user.daftaruser', ['sort_by' => 'name', 'order' => request('order') == 'asc' ? 'desc' : 'asc']) }}">
+							NAMA
+							@if(request('sort_by') == 'name')
+								<span>{{ request('order') == 'asc' ? '🔼' : '🔽' }}</span>
+							@endif
+						</a>
+					</th>
+					<th>
+						<a class="white-color" href="{{ route('user.daftaruser', ['sort_by' => 'email', 'order' => request('order') == 'asc' ? 'desc' : 'asc']) }}">
+							EMAIL
+							@if(request('sort_by') == 'email')
+								<span>{{ request('order') == 'asc' ? '🔼' : '🔽' }}</span>
+							@endif
+						</a>
+					</th>
+					<th>
+						<a class="white-color" href="{{ route('user.daftaruser', ['sort_by' => 'role_id', 'order' => request('order') == 'asc' ? 'desc' : 'asc']) }}">
+							ROLE
+							@if(request('sort_by') == 'role_id')
+								<span>{{ request('order') == 'asc' ? '🔼' : '🔽' }}</span>
+							@endif
+						</a>
+					</th>
 					<th style="width:11%">
 						<a href="https://localhost/phpmyadmin/index.php?route=/sql&pos=0&db=project-idk&table=users"class="btn btn-success text-center" style="display: flex;">phpMyAdmin</a>
 					</th>
