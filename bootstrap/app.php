@@ -11,7 +11,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        $middleware->alias([
+            'IsUnverified' => \App\Http\Middleware\IsUnverified::class,
+            'IsAdmin' => \App\Http\Middleware\IsAdmin::class,
+            'IsUser' => \App\Http\Middleware\IsUser::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

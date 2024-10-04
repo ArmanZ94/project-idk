@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Welcome</title>
+	<title>Verify</title>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
@@ -11,7 +11,7 @@
 	<header class="header" style="background-color: #303030;">
         <nav class="navbar navbar-default">
             <div class="row mx-auto text-center">
-                <a href="{{route('welcome')}}">
+                <a href=#>
 				    <img src="{{asset('Arifuwulogo.png')}}" alt="Arifuwu" width="200" height="45">     
                 </a>
             </div>
@@ -21,17 +21,16 @@
         <div class="col-lg-4">
             <div class="card" style="color: #ffffff; background-color: #121212;">
                 <div class="card-header">
-                    <h1 class="card-title">Selamat Datang</h1>
+                    <h1 class="card-title text-center">Menunggu Verifikasi</h1>
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
-                        <div class="d-grid gap-2" style="grid-template-columns: 4fr 1fr;">
-                            <a href="{{route('login')}}"class="btn btn-success">Login</a>
-                            <a href="{{route('register')}}" class="btn btn-primary">Register</a>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        Total Karyawan Aktif: {{$totalkaryawans }}
+                        <form action="{{ route('logout') }}" method="POST" class="d-grid gap-2">
+                            @csrf
+                            @method('DELETE')
+                            <h5 class="text-center">Anda akan otomatis masuk jika sudah diverifikasi.</h5>
+                            <button class="btn btn-light" type="submit">Logout</button>
+                        </form> 
                     </div>
                 </div>
             </div>

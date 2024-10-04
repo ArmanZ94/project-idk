@@ -16,8 +16,7 @@ return new class extends Migration
             $table->integer('gaji_pokok');
             $table->string('note_gaji')->nullable();
             $table->timestamps();
-        //    $table->foreignId('jabatan_id')->nullable()->constrained();
-        //    $table->foreignId('ruangan_id')->nullable()->constrained();
+            $table->foreignId('karyawan_id')->nullable()->constrained()->cascadeOnDelete();
         });
     }
 

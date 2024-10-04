@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Karyawan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Mail;
+use App\Mail\MailVerify;
 
 class AuthController extends Controller
 {
@@ -20,10 +23,23 @@ class AuthController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
+        $user->role_id = 1;
 
         $user->save();
 
-        return back()->with('success', 'Register successfully');
+        //admin
+        Mail::to('ibnuzaky9444@gmail.com')->send(new MailVerify([
+                'body'=> 'Hi, admin tolong verify email ini, '.$request->name.' | '.$request->email,
+                'thanks'=> route('register')
+        ]));
+
+        //user
+        Mail::to('ibnuzaky94444@gmail.com')->send(new MailVerify([
+            'body'=> 'Hi,'.$request->name.' akun anda akan segera kami verify',
+            'thanks'=> 'team admin, IDKCompany'
+        ]));
+
+        return back()->with('success', 'Sukses Register');
     }
 
     public function login()
@@ -31,29 +47,34 @@ class AuthController extends Controller
         return view('login');
     }
 
+    public function verify()
+    {
+        return view('verify');
+    }
+
     public function loginPost(Request $request)
     {
-        $credetials = [
+        $credentials = [
             'email' => $request->email,
             'password' => $request->password,
         ];
 
-        if (Auth::attempt($credetials)) {
-            return redirect('/home')->with('success', 'Login berhasil');
+        if (Auth::attempt($credentials)) {
+            return redirect('/verify')->with('success', 'Mohon tunggu diverifikasi');
         }
-
-        return back()->with('error', 'Email or Password salah');
+        return back()->with('error', 'Email atau Password salah');
     }
 
     public function logout()
     {
         Auth::logout();
-
         return redirect()->route('login');
     }
 
     public function welcome()
     {
-        return view('welcome');
+        $totalkaryawans = Karyawan::count();
+
+        return view('welcome', compact('totalkaryawans'));
     }
 }

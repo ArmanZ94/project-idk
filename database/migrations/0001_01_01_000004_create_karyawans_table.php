@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->timestamps();
-            $table->foreignId('gaji_id')->nullable()->constrained()->cascadeOnDelete();
             $table->foreignId('ruangan_id')->nullable()->constrained();
             $table->foreignId('jabatan_id')->nullable()->constrained();
         });

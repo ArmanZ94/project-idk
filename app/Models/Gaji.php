@@ -9,15 +9,10 @@ class Gaji extends Model
 {
     use HasFactory;
 	protected $table = 'gajis';
-	protected $fillable = ['gaji_pokok','note_gaji'];
-	//protected $fillable = ['nama','jabatan_id','ruangan_id'];
+	protected $fillable = ['gaji_pokok','note_gaji','karyawan_id'];
 
-/*	public function jabatan()
+	public function karyawan()
 	{
-		return $this->belongsTo(Jabatan::class);
+		return $this->belongsTo(Karyawan::class);
 	}
-	public function ruangan()
-	{
-		return $this->belongsTo(Ruangan::class);
-	} */
 }
