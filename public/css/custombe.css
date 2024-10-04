@@ -1,0 +1,31 @@
+
+.navbar-nav .nav-link.active{
+    color: #ffffff;
+}
+.navbar-nav .nav-link:hover{
+    color: #00c271;
+}
+.white-color{
+    color:#ffffff;
+}
+.pagination .page-link {
+    color: #ffffff; /* White text color */
+    background-color: #303030; /* Match the background color */
+    border-color: #505050; /* Slightly lighter border color */
+}
+.pagination .page-item.active .page-link {
+    background-color: #505050; /* Slightly lighter for active item */
+    border-color: #505050;
+}
+.header {
+    background-color: #303030;
+}
+.body-color {
+    background-color: #121212;
+    font-family: 'Segoe UI', sans-serif;
+    color: #ffffff;
+}
+.card {
+    color: #ffffff;
+    background-color: #121212;
+}
