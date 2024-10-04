@@ -4,19 +4,11 @@
     <title>Register Page</title>
     @include('layouts.headlinkbe')
 </head>
-<body style="background-color: #121212; font-family: Segoe UI">
-    <header class="header" style="background-color: #303030;">
-        <nav class="navbar navbar-default">
-            <div class="row mx-auto text-center">
-                <a href="{{route('landing')}}">
-				    <img src="{{asset('Arifuwulogo.png')}}" alt="Arifuwu" width="200" height="45">     
-                </a>
-            </div>
-        </nav>
-    </header>
+<body class="body-color">
+    @include('layouts.headerbe2')
     <div class="row justify-content-center mt-5">
         <div class="col-lg-4">
-            <div class="card" style="color: #ffffff; background-color: #121212;">
+            <div class="card">
                 <div class="card-header">
                     <h1 class="card-title">Register</h1>
                 </div>

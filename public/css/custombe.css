@@ -14,3 +14,15 @@
     background-color: #505050; /* Slightly lighter for active item */
     border-color: #505050;
 }
+.header {
+    background-color: #303030;
+}
+.body-color {
+    background-color: #121212;
+    font-family: 'Segoe UI', sans-serif;
+    color: #ffffff;
+}
+.card {
+    color: #ffffff;
+    background-color: #121212;
+}
