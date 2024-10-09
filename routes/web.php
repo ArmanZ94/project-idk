@@ -7,6 +7,7 @@ use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'guest'], function () {
@@ -57,6 +58,9 @@ Route::group(['middleware' => ['auth','IsAdmin']], function () {
     Route::post('/banner', [BannerController::class, 'b_simpan'])->name('banner.simpan'); 
     Route::delete('/banner/hapus/{id}', [BannerController::class, 'b_hapus'])->name('banner.hapus');
     Route::put('/banner/update/{id}', [BannerController::class, 'b_update'])->name('banner.update');
+
+    Route::get('/aboutedit', [AboutController::class, 'ab_edit'])->name('about.edit');
+    Route::put('/aboutedit', [AboutController::class, 'ab_update'])->name('about.update');
 });
 
 Route::delete('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');

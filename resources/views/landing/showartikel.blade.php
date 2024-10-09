@@ -18,7 +18,6 @@
           </ul>
         </div>
       </section>
-      
       <section class="section bg-default section-md">
           <div class="container">
               <div class="row justify-content-center">
@@ -27,13 +26,12 @@
                       <p>{{ $artikel->created_at->format('F d, Y') }}</p>
                       <div class="item-image bg-image" style="background-image: url({{ asset('storage/images/artikel/' . $artikel->img_artikel) }}); height: 400px; background-size: cover; background-position: center;"></div>
                       <div class="content mt-4">
-                          <p class="big">{{ $artikel->isi_artikel }}</p>
+                          <div class="big">{!! nl2br($artikel->isi_artikel)!!}</div>
                       </div>
                   </div>
               </div>
           </div>
       </section>
-     
       @include('layouts.footer')
     </div>
     @include('layouts.footlink')

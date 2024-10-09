@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="/css/bootstrap.css">
 <link rel="stylesheet" href="/css/fonts.css">
 <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/custom.css">
 
 {{--<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 <link rel="stylesheet" href="{{ asset('css/fonts.css') }}">
