@@ -22,7 +22,7 @@
         <div class="container">
           <h2><span class="text-light">Our</span> Story</h2>
           <div class="row row-30 justify-content-xl-between" style="display: block;">
-              <div class='segoe-font' style='font-size: 16px'>{!! $about->isi_about !!}</div>
+              <div class='segoe-font ul-list ol-list' style='font-size: 16px'>{!! $about->isi_about !!}</div>
           </div>
         </div>
       </section>

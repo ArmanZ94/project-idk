@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Artikel;
 use App\Models\Banner;
 use App\Models\About;
+use App\Models\Contact;
 
 use Illuminate\Http\Request;
 
@@ -40,6 +41,12 @@ class LandingController extends Controller
     }
 
     public function contacts(){
-        return view('landing.contacts');
+        $contact = Contact::first();  // Ini mengambil satu baris saja, bukan collection
+
+        if ($contact) {
+            return view('landing.contacts', compact('contact'));
+        } else {
+            return view('landing.contacts');
+        }
     }
 }

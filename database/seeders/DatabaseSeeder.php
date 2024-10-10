@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             ArtikelsTableSeeder::class,
             BannersTableSeeder::class,
             AboutsTableSeeder::class,
+            ContactsTableSeeder::class,
             JabatansTableSeeder::class,
             RuangansTableSeeder::class,
             KaryawansTableSeeder::class,

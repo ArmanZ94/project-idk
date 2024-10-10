@@ -15,14 +15,33 @@ class AboutsTableSeeder extends Seeder
     public function run(): void
     {
         About::create([
-            'isi_about' => 
-            '
-            What is Lorem Ipsum?
-
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            Why do we use it 
-
-            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+            'isi_about' => '
+            <p><strong><img style="display: block; margin-left: auto; margin-right: auto;" src="https://akcdn.detik.net.id/visual/2019/07/11/26d3df53-6d57-4cde-8872-05c78c830b9b_169.jpeg?w=400&amp;q=90" alt="" width="400" height="225"></strong></p>
+            <p><strong>&nbsp;</strong></p>
+            <p>&nbsp;</p>
+            <ul>
+            <li>
+            <p><strong>Tentang Kami</strong>: Kami adalah platform inovatif yang bertujuan untuk menyediakan solusi digital terbaik bagi para pengguna. Dengan semangat kreativitas dan teknologi, kami terus berkembang untuk memenuhi kebutuhan zaman.</p>
+            </li>
+            <li>
+            <p><strong>Misi Kami</strong>: Membangun dunia digital yang lebih mudah, cepat, dan efisien dengan menghadirkan layanan dan produk yang berfokus pada kepuasan pelanggan.</p>
+            </li>
+            <li>
+            <p><strong>Siapa Kami?</strong>: Kami adalah tim yang terdiri dari individu-individu berbakat yang didorong oleh passion untuk menciptakan pengalaman pengguna yang tak terlupakan.</p>
+            </li>
+            <li>
+            <p><strong>Komitmen Kami</strong>: Kami berdedikasi untuk memberikan layanan yang terbaik dengan selalu mengedepankan inovasi dan kualitas dalam setiap langkah yang kami ambil.</p>
+            </li>
+            <li>
+            <p><strong>Visi Kami</strong>: Menjadi pemimpin dalam industri digital dengan solusi yang inovatif, andal, dan dapat diakses oleh semua lapisan masyarakat.</p>
+            </li>
+            <li>
+            <p><strong>Sejarah Kami</strong>: Dimulai dari mimpi kecil, kami tumbuh menjadi platform yang dipercaya oleh ribuan pengguna di seluruh dunia.</p>
+            </li>
+            <li>
+            <p><strong>Kenapa Memilih Kami?</strong>: Karena kami percaya pada kekuatan solusi yang tepat, teknologi canggih, dan pendekatan yang ramah untuk setiap masalah yang Anda hadapi.</p>
+            </li>
+            </ul>
             '
         ]);
     }

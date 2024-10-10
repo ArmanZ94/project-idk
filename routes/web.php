@@ -8,6 +8,7 @@ use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'guest'], function () {
@@ -61,6 +62,9 @@ Route::group(['middleware' => ['auth','IsAdmin']], function () {
 
     Route::get('/aboutedit', [AboutController::class, 'ab_edit'])->name('about.edit');
     Route::put('/aboutedit', [AboutController::class, 'ab_update'])->name('about.update');
+
+    Route::get('/contactedit', [ContactController::class, 'co_edit'])->name('contact.edit');
+    Route::put('/contactedit', [ContactController::class, 'co_update'])->name('contact.update');
 });
 
 Route::delete('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');

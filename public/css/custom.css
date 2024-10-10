@@ -1,3 +1,14 @@
 .segoe-font {
     font-family: 'Segoe UI', sans-serif;
 }
+
+.ul-list ul li {
+	list-style: disc;  /* Untuk <ol>, pastikan numbering muncul */
+    display: list-item;
+}
+
+.ol-list ol li {
+	list-style: decimal;  /* Untuk <ul>, pastikan bullet points muncul */ 
+    display: list-item;
+	/*display: block;*/
+}

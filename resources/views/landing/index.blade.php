@@ -193,7 +193,7 @@
           <div class="item-body wow {{ $loop->iteration % 2 == 0 ? 'fadeInLeft' : 'fadeInRight' }}">
               <p>{{ $artikel->created_at->format('F d, Y') }}</p>
               <h4><a href="{{ route('showartikel', $artikel->id) }}">{{ $artikel->judul_artikel }}</a></h4>
-              <p class="big">{!! Str::limit($artikel->isi_artikel, 150) !!}</p>
+              <p class="big ul-list ol-list">{!! Str::limit($artikel->isi_artikel, 150) !!}</p>
           </div>
       </div>
       @endforeach

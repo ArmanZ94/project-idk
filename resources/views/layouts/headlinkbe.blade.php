@@ -21,4 +21,12 @@
             toolbar: 'undo redo | bold italic underline | fontsize | image | alignleft aligncenter alignright alignjustify | table | bullist numlist outdent indent | link',
             branding: false
         });
+
+        tinymce.init({
+            selector: '#isi_contact',
+            menubar: false,
+            plugins: 'table lists link image preview',
+            toolbar: 'undo redo | bold italic underline | fontsize | image | alignleft aligncenter alignright alignjustify | table | bullist numlist outdent indent | link',
+            branding: false
+        });
     </script>
