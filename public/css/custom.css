@@ -1,0 +1,49 @@
+.segoe-font {
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.ul-list ul li {
+	list-style: disc;  /* Untuk <ol>, pastikan numbering muncul */
+    display: list-item;
+}
+
+.ol-list ol li {
+	list-style: decimal;  /* Untuk <ul>, pastikan bullet points muncul */ 
+    display: list-item;
+	/*display: block;*/
+}
+
+.row-g {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+
+/* Create four equal columns that sit next to each other */
+.column-g {
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+}
+
+.column-g img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+}
+
+/* Responsive layout - makes a two column layout instead of four columns */
+@media screen and (max-width: 800px) {
+    .column-g {
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+/* Responsive layout - makes the columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column-g {
+        flex: 100%;
+        max-width: 100%;
+    }
+}

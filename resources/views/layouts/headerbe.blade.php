@@ -22,6 +22,15 @@
                       <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{route('banner.daftarbanner')}}">BANNER</a>
                       </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{route('about.edit')}}">ABOUT</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{route('contact.edit')}}">CONTACT</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{route('galeri.daftargaleri')}}">GALERI</a>
+                      </li>
                 </ul>
                 <form action="{{ route('logout') }}" method="POST" class="d-flex" role="search">
                     @csrf

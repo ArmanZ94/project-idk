@@ -7,6 +7,9 @@ use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\GaleriController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'guest'], function () {
@@ -20,6 +23,7 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/article', [LandingController::class, 'article'])->name('article');
     Route::get('/showarticle/{id}', [LandingController::class, 'showartikel'])->name('showartikel');
     Route::get('/about', [LandingController::class, 'about'])->name('about');
+    Route::get('/gallery', [LandingController::class, 'gallery'])->name('gallery');
     Route::get('/typography', [LandingController::class, 'typography'])->name('typography');
     Route::get('/contacts', [LandingController::class, 'contacts'])->name('contacts');
 });
@@ -57,6 +61,19 @@ Route::group(['middleware' => ['auth','IsAdmin']], function () {
     Route::post('/banner', [BannerController::class, 'b_simpan'])->name('banner.simpan'); 
     Route::delete('/banner/hapus/{id}', [BannerController::class, 'b_hapus'])->name('banner.hapus');
     Route::put('/banner/update/{id}', [BannerController::class, 'b_update'])->name('banner.update');
+
+    Route::get('/galeri', [GaleriController::class, 'ga_daftar'])->name('galeri.daftargaleri');
+    Route::get('/galeri/tambah', [GaleriController::class, 'ga_tambah'])->name('galeri.tambah'); 
+    Route::get('/galeri/edit/{id}', [GaleriController::class, 'ga_edit'])->name('galeri.edit');
+    Route::post('/galeri', [GaleriController::class, 'ga_simpan'])->name('galeri.simpan'); 
+    Route::delete('/galeri/hapus/{id}', [GaleriController::class, 'ga_hapus'])->name('galeri.hapus');
+    Route::put('/galeri/update/{id}', [GaleriController::class, 'ga_update'])->name('galeri.update');
+
+    Route::get('/aboutedit', [AboutController::class, 'ab_edit'])->name('about.edit');
+    Route::put('/aboutedit', [AboutController::class, 'ab_update'])->name('about.update');
+
+    Route::get('/contactedit', [ContactController::class, 'co_edit'])->name('contact.edit');
+    Route::put('/contactedit', [ContactController::class, 'co_update'])->name('contact.update');
 });
 
 Route::delete('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');

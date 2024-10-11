@@ -35,7 +35,6 @@
                         	Tidak ada gambar
                         @endif
 					</td>
-
 					<td>
 						<form onsubmit="return confirm('Apakah Anda Yakin ?');"
 							action="{{ route('banner.hapus', $banner->id) }}" method="POST">
