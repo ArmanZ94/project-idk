@@ -18,6 +18,7 @@
           </ul>
         </div>
       </section>
+      <!-- showing article -->
       <section class="section bg-default section-md">
           <div class="container">
               <div class="row justify-content-center">

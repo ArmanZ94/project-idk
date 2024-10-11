@@ -5,6 +5,7 @@ use App\Models\Artikel;
 use App\Models\Banner;
 use App\Models\About;
 use App\Models\Contact;
+use App\Models\Galeri;
 
 use Illuminate\Http\Request;
 
@@ -34,6 +35,11 @@ class LandingController extends Controller
         } else {
             return view('landing.about');
         }
+    }
+
+    public function gallery(){
+        $galeris = Galeri::all();
+        return view('landing.gallery', compact('galeris'));
     }
 
     public function typography(){
