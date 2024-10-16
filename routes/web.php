@@ -12,6 +12,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GaleriController;
 use Illuminate\Support\Facades\Route;
 
+//============================ Guest/Not login ================================
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/welcome', [AuthController::class, 'welcome'])->name('welcome');
     Route::get('/register', [AuthController::class, 'register'])->name('register');
@@ -28,10 +29,12 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/contacts', [LandingController::class, 'contacts'])->name('contacts');
 });
 
+//================================== IsUnverified ==================================
 Route::group(['middleware' => ['auth','IsUnverified']], function () {
     Route::get('/verify', [AuthController::class,'verify'])->name('verify');
 });
 
+//================================= IsAdmin =====================================
 Route::group(['middleware' => ['auth','IsAdmin']], function () {
     Route::get('/home', [HomeController::class, 'home'])->name('home');
     //Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -76,6 +79,19 @@ Route::group(['middleware' => ['auth','IsAdmin']], function () {
     Route::put('/contactedit', [ContactController::class, 'co_update'])->name('contact.update');
 });
 
+//=============================== IsUser =================================
+Route::group(['middleware' => ['auth','IsUser']], function () {
+    Route::get('/homeuser', [HomeController::class, 'home_user'])->name('homeuser');
+
+    Route::get('/artikelu', [ArtikelController::class, 'a_daftar_user'])->name('artikel.user.daftarartikel');
+    Route::get('/artikelu/tambah', [ArtikelController::class, 'a_tambah_user'])->name('artikel.user.tambah'); 
+    Route::get('/artikelu/edit/{id}', [ArtikelController::class, 'a_edit_user'])->name('artikel.user.edit');
+    Route::post('/artikelu', [ArtikelController::class, 'a_simpan_user'])->name('artikel.user.simpan'); 
+    Route::delete('/artikelu/hapus/{id}', [ArtikelController::class, 'a_hapus_user'])->name('artikel.user.hapus');
+    Route::put('/artikelu/update/{id}', [ArtikelController::class, 'a_update_user'])->name('artikel.user.update');
+});
+
+//=============================== Public ===================================
 Route::delete('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
 
 Route::get('/blank', function() {

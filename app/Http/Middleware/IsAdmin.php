@@ -20,7 +20,7 @@ class IsAdmin
             return redirect('/verify');
         } 
         elseif (Auth::user()->role_id == 3) {
-            return redirect('/blank');
+            return redirect('/homeuser');
         }
         return $next($request);
     }
