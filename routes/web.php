@@ -9,6 +9,7 @@ use App\Http\Controllers\BannerController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ContactusController;
 use App\Http\Controllers\GaleriController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,7 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/gallery', [LandingController::class, 'gallery'])->name('gallery');
     Route::get('/typography', [LandingController::class, 'typography'])->name('typography');
     Route::get('/contacts', [LandingController::class, 'contacts'])->name('contacts');
+    Route::post('/contacts', [ContactusController::class, 'cu_simpan'])->name('contactus.simpan');
 });
 
 //================================== IsUnverified ==================================
@@ -77,6 +79,10 @@ Route::group(['middleware' => ['auth','IsAdmin']], function () {
 
     Route::get('/contactedit', [ContactController::class, 'co_edit'])->name('contact.edit');
     Route::put('/contactedit', [ContactController::class, 'co_update'])->name('contact.update');
+
+    Route::get('/contactus', [ContactusController::class, 'cu_daftar'])->name('contactus.daftarcontactus');
+    Route::get('/contactus/view/{id}', [ContactusController::class, 'cu_view'])->name('contactus.view');
+    Route::delete('/contactus/hapus/{id}', [ContactusController::class, 'cu_hapus'])->name('contactus.hapus');
 });
 
 //=============================== IsUser =================================

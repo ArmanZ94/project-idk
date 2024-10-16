@@ -21,7 +21,7 @@
       <section class="section section-md bg-default">
         <div class="container">
           <h2><span class="text-light">Our</span> Story</h2>
-          <div class="row row-30 justify-content-xl-between" style="display: block;">
+          <div class="row-30 justify-content-xl-between" style="display: block;">
               <div class='segoe-font ul-list ol-list' style='font-size: 16px'>{!! $about->isi_about !!}</div>
           </div>
         </div>
