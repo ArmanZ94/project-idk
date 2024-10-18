@@ -18,6 +18,7 @@
                             </div>
                         @endif
                         <div class="mb-3">{{$contactus->nama_contact_us." | ".$contactus->email_contact_us}}</div>
+                        <div class="mb-3"></div>
                         <div class="mb-3">{{$contactus->isi_contact_us}}</div>
                         <div class="mb-3">
                             <div class="d-grid gap-2" style="grid-template-columns: repeat(1, 1fr);">
