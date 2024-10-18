@@ -24,7 +24,7 @@
 					<td>{{ $galeri->id }}</td>
 					<td>
 						@if($galeri->img_galeri)
-                            <img src="{{asset('storage/images/galeri/' . $galeri->img_galeri) }}" width="100" alt="Gambar Galeri">
+                            <img src="{{asset('storage/' . $galeri->img_galeri) }}" width="100" alt="Gambar Galeri">
                         @else
                         	Tidak ada gambar
                         @endif

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Artikel extends Model
 {
@@ -16,4 +17,13 @@ class Artikel extends Model
 	{
 		return $this->belongsTo(User::class);
 	}
+
+	protected static function booted()
+    {
+        static::creating(function ($model) {
+			if (is_null($model->user_id)) {
+            	$model->user_id = Auth::id(); // Set user_id from authenticated user
+			}
+        });
+    }
 }

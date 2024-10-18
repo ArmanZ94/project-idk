@@ -27,7 +27,7 @@
               @for ($i = 0; $i < 4; $i++) <!-- Loop to create 4 columns -->
                   <div class="column-g">
                       @foreach($galeris->slice($i * ceil($galeris->count() / 4), ceil($galeris->count() / 4)) as $galeri)
-                          <img src="{{ asset('storage/images/galeri/' . $galeri->img_galeri) }}" alt="Gambar Galeri" style="width:100%" onclick="openModal('{{ asset('storage/images/galeri/' . $galeri->img_galeri) }}')">
+                          <img src="{{ asset('storage/' . $galeri->img_galeri) }}" alt="Gambar Galeri" style="width:100%" onclick="openModal('{{ asset('storage/' . $galeri->img_galeri) }}')">
                       @endforeach
                   </div>
               @endfor

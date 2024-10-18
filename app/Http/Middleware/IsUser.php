@@ -16,10 +16,10 @@ class IsUser
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::user()->role_id == 1) {
+        if (Auth::check() && Auth::user()->role_id == 1) {
             return redirect('/verify');
         } 
-        elseif (Auth::user()->role_id == 2) {
+        elseif (Auth::check() && Auth::user()->role_id == 2) {
             return redirect('/home');
         }
         return $next($request);

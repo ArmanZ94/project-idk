@@ -25,7 +25,7 @@ class ArtikelController extends Controller
     $request->user()->artikel()->create([
         'judul_artikel' => $request->judul_artikel,
         'isi_artikel' => $request->isi_artikel,
-        'img_artikel' => $image->hashName(),
+        'img_artikel' => 'images/artikel/'.$image->hashName(),
     ]);
 
     return redirect()->route('artikel.daftarartikel')->with('success', 'Artikel berhasil dibuat!');
@@ -74,13 +74,13 @@ class ArtikelController extends Controller
             $image->storeAs('public/images/artikel', $image->hashName());
 
             //delete old image
-            Storage::delete('public/images/artikel/'.$artikel->img_artikel);
+            //Storage::delete('public/'.$artikel->img_artikel);
 
             //update product with new imag
             $artikel->update([
                 'judul_artikel' => $request->judul_artikel,
                 'isi_artikel' => $request->isi_artikel,
-                'img_artikel' => $image->hashName(),
+                'img_artikel' => 'images/artikel/'.$image->hashName(),
             ]);
 
         } else {
@@ -123,7 +123,7 @@ class ArtikelController extends Controller
     $request->user()->artikel()->create([
         'judul_artikel' => $request->judul_artikel,
         'isi_artikel' => $request->isi_artikel,
-        'img_artikel' => $image->hashName(),
+        'img_artikel' => 'images/artikel/'.$image->hashName(),
     ]);
 
     return redirect()->route('artikel.user.daftarartikel')->with('success', 'Artikel berhasil dibuat!');
@@ -152,13 +152,13 @@ class ArtikelController extends Controller
             $image->storeAs('public/images/artikel', $image->hashName());
 
             //delete old image
-            Storage::delete('public/images/artikel/'.$artikel->img_artikel);
+            Storage::delete('public/'.$artikel->img_artikel);
 
             //update product with new imag
             $artikel->update([
                 'judul_artikel' => $request->judul_artikel,
                 'isi_artikel' => $request->isi_artikel,
-                'img_artikel' => $image->hashName(),
+                'img_artikel' => 'images/artikel/'.$image->hashName(),
             ]);
 
         } else {

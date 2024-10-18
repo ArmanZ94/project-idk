@@ -36,7 +36,7 @@
                             </div>
                             <div class="mb-3">
                                 <p>Gambar saat ini:</p>
-                                <img src="{{ asset('storage/images/banner/' . $banner->img_banner) }}" alt="Gambar Banner" width="150">
+                                <img src="{{ asset('storage/' . $banner->img_banner) }}" alt="Gambar Banner" width="150">
                             </div>
                             <div class="mb-3">
                                 <div class="d-grid gap-2" style="grid-template-columns: repeat(2, 1fr);">

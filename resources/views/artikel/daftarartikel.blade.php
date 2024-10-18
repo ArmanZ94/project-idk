@@ -30,7 +30,7 @@
 					<td style="word-wrap: break-word; white-space: normal;">{!! Str::limit(strip_tags( $artikel->isi_artikel), 250) !!}</td>
 					<td>
 						@if($artikel->img_artikel)
-                            <img src="{{asset('storage/images/artikel/' . $artikel->img_artikel) }}" width="100" alt="Gambar Artikel">
+                            <img src="{{asset('storage/' . $artikel->img_artikel) }}" width="100" alt="Gambar Artikel">
                         @else
                         	Tidak ada gambar
                         @endif

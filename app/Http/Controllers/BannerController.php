@@ -27,7 +27,7 @@ class BannerController extends Controller
         'text1_banner' => $request->text1_banner,
         'text2_banner' => $request->text2_banner,
         'text3_banner' => $request->text3_banner,
-        'img_banner' => $image->hashName(),
+        'img_banner' => 'images/banner/'.$image->hashName(),
     ]);
 
     return redirect()->route('banner.daftarbanner')->with('success', 'Banner berhasil dibuat!');
@@ -77,14 +77,14 @@ class BannerController extends Controller
             $image->storeAs('public/images/banner', $image->hashName());
 
             //delete old image
-            Storage::delete('public/images/banner/'.$banner->img_banner);
+            //Storage::delete('public/'.$banner->img_banner);
 
             //update product with new imag
             $banner->update([
                 'text1_banner' => $request->text1_banner,
                 'text2_banner' => $request->text2_banner,
                 'text3_banner' => $request->text3_banner,
-                'img_banner' => $image->hashName(),
+                'img_banner' => 'images/banner/'.$image->hashName(),
             ]);
 
         } else {

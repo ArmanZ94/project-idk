@@ -15,21 +15,21 @@ class BannersTableSeeder extends Seeder
     public function run(): void
     {
         Banner::create([
-            'img_banner' => 'banner1.png',
+            'img_banner' => 'images/banner/banner1.png',
             'text1_banner' => "Text Banner 1",
             'text2_banner' => "Text Banner 2",
             'text3_banner' => "Text Banner 3",
         ]);
 
         Banner::create([
-            'img_banner' => 'banner2.png',
+            'img_banner' => 'images/banner/banner2.png',
             'text1_banner' => "Text Banner 1",
             'text2_banner' => "Text Banner 2",
             'text3_banner' => "Text Banner 3",
         ]);
 
         Banner::create([
-            'img_banner' => 'banner3.png',
+            'img_banner' => 'images/banner/banner3.png',
             'text1_banner' => "Text Banner 1",
             'text2_banner' => "Text Banner 2",
             'text3_banner' => "Text Banner 3",

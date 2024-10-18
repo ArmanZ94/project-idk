@@ -13,7 +13,7 @@
       <section class="section swiper-container swiper-slider swiper-slider-1 context-dark" data-loop="true" data-autoplay="5000" data-simulate-touch="false">
         <div class="swiper-wrapper">
           @foreach ($banners as $banner)
-              <div class="swiper-slide" data-slide-bg="{{ asset('storage/images/banner/' .$banner->img_banner) }}">
+              <div class="swiper-slide" data-slide-bg="{{ asset('storage/' .$banner->img_banner) }}">
                   <div class="swiper-slide-caption section-lg">
                       <div class="container">
                           <div class="row">
@@ -189,7 +189,7 @@
       </h2>
       @foreach($artikels as $artikel)
       <div class="box-image-small {{ $loop->iteration % 2 == 0 ? 'box-image-small-right' : 'box-image-small-left' }}">
-          <div class="item-image bg-image novi-background" style="background-image: url({{ asset('storage/images/artikel/' . $artikel->img_artikel) }})"></div>
+          <div class="item-image bg-image novi-background" style="background-image: url({{ asset('storage/' . $artikel->img_artikel) }})"></div>
           <div class="item-body wow {{ $loop->iteration % 2 == 0 ? 'fadeInLeft' : 'fadeInRight' }}">
               <p>{{ $artikel->created_at->format('F d, Y') }}</p>
               <h4><a href="{{ route('showartikel', $artikel->id) }}">{{ $artikel->judul_artikel }}</a></h4>

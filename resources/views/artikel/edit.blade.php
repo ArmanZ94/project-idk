@@ -30,7 +30,7 @@
                             </div>
                             {{--<div class="mb-3">
                                 <p>Gambar saat ini:</p>
-                                <img src="{{ asset('storage/images/artikel/' . $artikel->img_artikel) }}" alt="Gambar Artikel" width="150">
+                                <img src="{{ asset('storage/' . $artikel->img_artikel) }}" alt="Gambar Artikel" width="150">
                             </div>--}}
                             <div class="mb-3">
                                 <textarea name="isi_artikel" id="isi_artikel" placeholder="Isi Artikel"> {{ $artikel->isi_artikel ?? '' }}</textarea>

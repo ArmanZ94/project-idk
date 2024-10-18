@@ -19,7 +19,7 @@ class GaleriController extends Controller
 
     // Buat galeri
     Galeri::create([
-        'img_galeri' => $image->hashName(),
+        'img_galeri' => 'images/galeri/'.$image->hashName(),
     ]);
 
     return redirect()->route('galeri.daftargaleri')->with('success', 'Galeri berhasil dibuat!');
@@ -66,11 +66,11 @@ class GaleriController extends Controller
             $image->storeAs('public/images/galeri', $image->hashName());
 
             //delete old image
-            Storage::delete('public/images/galeri/'.$galeri->img_galeri);
+            //Storage::delete('public/'.$galeri->img_galeri);
 
             //update product with new imag
             $galeri->update([
-                'img_galeri' => $image->hashName(),
+                'img_galeri' => 'images/galeri/'.$image->hashName(),
             ]);
 
         } else {

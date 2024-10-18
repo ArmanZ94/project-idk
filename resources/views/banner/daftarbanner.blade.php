@@ -30,7 +30,7 @@
 					<td style="word-wrap: break-word; white-space: normal;">{{ Str::limit($banner->text3_banner, 500) }}</td>
 					<td>
 						@if($banner->img_banner)
-                            <img src="{{asset('storage/images/banner/' . $banner->img_banner) }}" width="100" alt="Gambar Banner">
+                            <img src="{{asset('storage/' . $banner->img_banner) }}" width="100" alt="Gambar Banner">
                         @else
                         	Tidak ada gambar
                         @endif
