@@ -29,6 +29,9 @@
                         <a class="nav-link active" aria-current="page" href="{{route('contact.edit')}}">CONTACT</a>
                       </li>
                       <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{route('contactus.daftarcontactus')}}">CONTACTUS</a>
+                      </li>
+                      <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{route('galeri.daftargaleri')}}">GALERI</a>
                       </li>
                 </ul>

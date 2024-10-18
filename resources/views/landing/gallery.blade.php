@@ -22,14 +22,21 @@
         <div class="container" style="box-sizing: border-box;">
           <h2>Gallery</h2>
           <div class="row row-30 justify-content-xl-between" style="display: block;">
+            <!-- Image Gallery -->
             <div class="row-g">
               @for ($i = 0; $i < 4; $i++) <!-- Loop to create 4 columns -->
-                <div class="column-g">
-                  @foreach($galeris->slice($i * ceil($galeris->count() / 4), ceil($galeris->count() / 4)) as $galeri)
-                    <img src="{{ asset('storage/images/galeri/' . $galeri->img_galeri) }}" alt="Gambar Galeri" style="width:100%">
-                  @endforeach
-                </div>
+                  <div class="column-g">
+                      @foreach($galeris->slice($i * ceil($galeris->count() / 4), ceil($galeris->count() / 4)) as $galeri)
+                          <img src="{{ asset('storage/images/galeri/' . $galeri->img_galeri) }}" alt="Gambar Galeri" style="width:100%" onclick="openModal('{{ asset('storage/images/galeri/' . $galeri->img_galeri) }}')">
+                      @endforeach
+                  </div>
               @endfor
+            </div>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+              <span class="close" onclick="closeModal()">&times;</span>
+              <img class="modal-content" id="imgModal">
+              <div id="caption"></div>
             </div>
           </div>
         </div>

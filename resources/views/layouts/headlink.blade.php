@@ -14,3 +14,29 @@
 
 
 <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
+
+<script>
+    // Open the Modal
+    function openModal(imageSrc) {
+        var modal = document.getElementById("myModal");
+        var modalImg = document.getElementById("imgModal");
+    
+        // Display the modal
+        modal.style.display = "block";
+        modalImg.src = imageSrc;
+    
+        // Disable scroll on the main page
+        document.body.classList.add("no-scroll");
+    }
+    
+    // Close the Modal
+    function closeModal() {
+        var modal = document.getElementById("myModal");
+    
+        // Hide the modal
+        modal.style.display = "none";
+    
+        // Enable scroll on the main page
+        document.body.classList.remove("no-scroll");
+    }
+    </script>

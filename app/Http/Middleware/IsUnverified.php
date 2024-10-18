@@ -17,7 +17,7 @@ class IsUnverified
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::user()->role_id == 3) {
-            return redirect('/blank');
+            return redirect('/homeuser');
         } 
         elseif (Auth::user()->role_id == 2) {
             return redirect('/home');

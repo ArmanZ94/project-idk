@@ -39,7 +39,7 @@
                     </li>
                     <li class="rd-nav-item"><a class="rd-nav-link" href="{{route('typography')}}">Typography</a>
                     </li>
-                    <li class="rd-nav-item"><a class="rd-nav-link" href="{{route('contacts')}}">Contacts</a>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="{{route('contacts')}}">Contact Us</a>
                     </li>
                   </ul>
                 </div>
