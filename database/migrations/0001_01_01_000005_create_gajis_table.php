@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Karyawan;
 
 return new class extends Migration
 {
@@ -16,7 +17,8 @@ return new class extends Migration
             $table->integer('gaji_pokok');
             $table->string('note_gaji')->nullable();
             $table->timestamps();
-            $table->foreignId('karyawan_id')->nullable()->constrained()->cascadeOnDelete();
+            //$table->foreignId('karyawan_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Karyawan::class)->nullable()->constrained()->cascadeOnDelete();
         });
     }
 

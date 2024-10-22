@@ -40,11 +40,11 @@ class UserResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('id')->label('ID')->sortable(),
                 Tables\Columns\TextColumn::make('name')
-                    ->label('Name')
-                    ->sortable(),
+                    ->label('Name')->limit(24)
+                    ->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('email')
-                    ->label('Email')
-                    ->sortable(),
+                    ->label('Email')->limit(24)
+                    ->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('role_id')
                 ->label('Role')
                 ->sortable()

@@ -52,8 +52,8 @@
 				@foreach($users as $user)
 				<tr>
 					<td>{{ $user->id }}</td>
-					<td>{{ $user->name }}</td>
-					<td>{{ $user->email }}</td>
+					<td>{{ Str::limit($user->name,50) }}</td>
+					<td>{{ Str::limit($user->email,50) }}</td>
 					<td>
 						@if(optional($user)->role_id == 1)
 							unverified

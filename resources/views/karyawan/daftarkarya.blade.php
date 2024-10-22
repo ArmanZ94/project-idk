@@ -25,10 +25,10 @@
 				@foreach($karyawans as $karyawan)
 				<tr>
 					<td>{{ $karyawan->id }}</td>
-					<td>{{ $karyawan->nama }}</td>
+					<td>{{ Str::limit($karyawan->nama,50) }}</td>
 					<td>{{ optional($karyawan->jabatan)->nama_jabatan ?? '---'}}</td>
 					<td>{{ optional($karyawan->ruangan)->nama_ruangan ?? '---'}}</td>
-					<td>{{ optional($karyawan->gaji)->gaji_pokok ?? '---'}}</td>
+					<td>{{ optional($karyawan->gaji)->gaji_pokok ? Str::limit(optional($karyawan->gaji)->gaji_pokok, 12) : '---'}}</td>
 					<td>
 						<form onsubmit="return confirm('Apakah Anda Yakin ?');"
 							action="{{ route('karyawan.hapus', $karyawan->id) }}" method="POST">

@@ -23,7 +23,7 @@
           <div class="container">
               <div class="row justify-content-center">
                   <div class="col-lg-8">
-                      <h2>{{ $artikel->judul_artikel }}</h2>
+                      <h2 style="word-wrap: break-word; white-space: normal;">{{ $artikel->judul_artikel }}</h2>
                       <p>{{ $artikel->created_at->format('F d, Y') ." by ". ($artikel->user)->name }}</p>
                       <div class="item-image bg-image" style="background-image: url({{ asset('storage/' . $artikel->img_artikel) }}); height: 400px; background-size: cover; background-position: center;"></div>
                       <div class="content mt-4">

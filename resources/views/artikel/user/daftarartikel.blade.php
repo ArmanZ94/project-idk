@@ -24,7 +24,7 @@
 				@foreach($artikels as $artikel)
 				<tr>
 					<td>{{ $artikel->id }}</td>
-					<td>{{ $artikel->judul_artikel }}</td>
+					<td>{{ Str::limit($artikel->judul_artikel, 25) }}</td>
 					<td style="word-wrap: break-word; white-space: normal;">{!! Str::limit(strip_tags( $artikel->isi_artikel), 250) !!}</td>
 					<td>
 						@if($artikel->img_artikel)

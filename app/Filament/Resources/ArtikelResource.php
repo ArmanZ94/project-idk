@@ -14,6 +14,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class ArtikelResource extends Resource
 {
@@ -21,14 +22,15 @@ class ArtikelResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $pluralModelLabel = 'Articles';
-    protected static ?string $navigationLabel = 'Manage Articles';
+    //untuk mengubah nama label kiri
+    protected static ?string $navigationLabel = 'Articles';
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\TextInput::make('judul_artikel')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(250),
                 Forms\Components\Textarea::make('isi_artikel')
                     ->required(),
                 Forms\Components\FileUpload::make('img_artikel')
@@ -43,13 +45,13 @@ class ArtikelResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('id')->label('ID')->sortable(),
-                Tables\Columns\TextColumn::make('user.name')->label('Author | ID')->sortable()
-                ->formatStateUsing(function ($state, $record) {
+                Tables\Columns\TextColumn::make('user.name')->label('Author | ID')->sortable()->searchable()
+                ->formatStateUsing(function ($record) {
                     // $state di sini adalah nama user, dan $record adalah instance artikel
-                    return $record->user->name . " | " . $record->user->id;
+                    return Str::limit($record->user->name,5) . " | " . $record->user->id;
                 }),
-                Tables\Columns\TextColumn::make('judul_artikel')->sortable()->searchable(),
-                Tables\Columns\TextColumn::make('isi_artikel')->limit(50),
+                Tables\Columns\TextColumn::make('judul_artikel')->limit(24)->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('isi_artikel')->limit(50)->searchable()->html(),
                 Tables\Columns\ImageColumn::make('img_artikel'),
                 Tables\Columns\TextColumn::make('created_at')->label('Created')->sortable()->dateTime(),
             ])

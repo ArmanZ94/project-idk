@@ -25,9 +25,9 @@
 				@foreach($banners as $banner)
 				<tr>
 					<td>{{ $banner->id }}</td>
-					<td style="word-wrap: break-word; white-space: normal;">{{ Str::limit($banner->text1_banner, 500) }}</td>
-					<td style="word-wrap: break-word; white-space: normal;">{{ Str::limit($banner->text2_banner, 500) }}</td>
-					<td style="word-wrap: break-word; white-space: normal;">{{ Str::limit($banner->text3_banner, 500) }}</td>
+					<td style="word-wrap: break-word; white-space: normal;">{{ Str::limit($banner->text1_banner, 50) }}</td>
+					<td style="word-wrap: break-word; white-space: normal;">{{ Str::limit($banner->text2_banner, 50) }}</td>
+					<td style="word-wrap: break-word; white-space: normal;">{{ Str::limit($banner->text3_banner, 100) }}</td>
 					<td>
 						@if($banner->img_banner)
                             <img src="{{asset('storage/' . $banner->img_banner) }}" width="100" alt="Gambar Banner">

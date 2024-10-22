@@ -24,8 +24,8 @@
 				@foreach($contactus as $contactu)
 				<tr>
 					<td>{{ $contactu->id }}</td>
-					<td>{{ $contactu->nama_contact_us }}</td>
-					<td>{{ $contactu->email_contact_us }}</td>
+					<td>{{ Str::limit($contactu->nama_contact_us,15) }}</td>
+					<td>{{ Str::limit($contactu->email_contact_us,25) }}</td>
 					<td style="word-wrap: break-word; white-space: normal;">{!! Str::limit( $contactu->isi_contact_us, 250) !!}</td>
 					<td>
 						<form onsubmit="return confirm('Apakah Anda Yakin ?');"

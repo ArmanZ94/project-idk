@@ -25,8 +25,8 @@
 				@foreach($artikels as $artikel)
 				<tr>
 					<td>{{ $artikel->id }}</td>
-					<td>{{ ($artikel->user)->name ." | ". ($artikel->user)->id }}</td>
-					<td>{{ $artikel->judul_artikel }}</td>
+					<td>{{ Str::limit(($artikel->user)->name,10) ." | ". ($artikel->user)->id }}</td>
+					<td>{{ Str::limit($artikel->judul_artikel, 24) }}</td>
 					<td style="word-wrap: break-word; white-space: normal;">{!! Str::limit(strip_tags( $artikel->isi_artikel), 250) !!}</td>
 					<td>
 						@if($artikel->img_artikel)
