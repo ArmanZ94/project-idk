@@ -8,6 +8,7 @@ use App\Models\Artikel;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\Components\RichEditor;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -31,7 +32,7 @@ class ArtikelResource extends Resource
                 Forms\Components\TextInput::make('judul_artikel')
                     ->required()
                     ->maxLength(250),
-                Forms\Components\Textarea::make('isi_artikel')
+                Forms\Components\RichEditor::make('isi_artikel')
                     ->required(),
                 Forms\Components\FileUpload::make('img_artikel')
                     ->image()
