@@ -7,6 +7,17 @@
 <link rel="stylesheet" href="/css/fonts.css">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/custom.css">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script>
+    function onSubmit(e) {
+        // Check if reCAPTCHA has been completed
+        if (grecaptcha.getResponse() === "") {
+            e.preventDefault(); // Stop form submission
+            alert("Please complete the CAPTCHA"); // Show an alert to the user
+        }
+    }
+</script>
+
 
 {{--<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 <link rel="stylesheet" href="{{ asset('css/fonts.css') }}">

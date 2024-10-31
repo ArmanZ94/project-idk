@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('email_contact_us')->nullable();
             $table->string('nama_contact_us')->nullable();
-            $table->string('isi_contact_us')->nullable();
+            $table->text('isi_contact_us')->nullable();
             $table->timestamps();
         });
     }

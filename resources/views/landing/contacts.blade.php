@@ -32,7 +32,7 @@
                 </div>
               </div>
               <div class="card-body">
-                <form action="{{ route('contactus.simpan') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('contactus.simpan') }}" method="POST" enctype="multipart/form-data" onsubmit="onSubmit(event)">
                   @csrf
                   <div class="mb-3">
                       <label for="nama_contact_us"><h6><strong>Nama</strong></h6></label>
@@ -47,6 +47,8 @@
                     <textarea name="isi_contact_us" class="form-control" id="isi_contact_us" rows="5" placeholder="Pesan Anda"></textarea>
                   </div>
                   <div class="d-grid gap-2" style="grid-template-columns: repeat(2, 1fr);">
+                    <div class="g-recaptcha mt-4" data-sitekey={{config('services.recaptcha.key')}}></div>
+                    <div class="mb-3"></div>
                     <button class="btn btn-primary">Kirim</button>
                   </div>
                 </form>
